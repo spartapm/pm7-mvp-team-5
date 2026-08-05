@@ -22,14 +22,9 @@
 
 켜져 있으면 가입 직후 세션이 안 나와 DB 저장이 안 됩니다.
 
-## 3. 환경변수
+## 3. 클라이언트 설정
 
-`.env.local` (이미 있음):
-
-```
-NEXT_PUBLIC_SUPABASE_URL=https://defeeiwpbziodzrbilnj.supabase.co
-NEXT_PUBLIC_SUPABASE_ANON_KEY=sb_publishable_...
-```
+URL / anon key는 `src/lib/supabase.ts`에 하드코딩되어 있습니다. `.env` 불필요.
 
 ## 4. 동작 요약
 
