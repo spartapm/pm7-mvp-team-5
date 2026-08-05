@@ -32,7 +32,7 @@ function LoginInner() {
       showToast(result.error, "error");
       return;
     }
-    setUser(result.session.user);
+    await setUser(result.session.user);
     router.replace(redirect);
   };
 

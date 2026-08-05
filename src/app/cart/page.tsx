@@ -39,17 +39,17 @@ export default function CartPage() {
     };
   }, [selected]);
 
-  const handleOrder = () => {
+  const handleOrder = async () => {
     if (!isLoggedIn) {
       router.push(`/login?redirect=${encodeURIComponent("/cart")}`);
       return;
     }
-    const result = completeOrder();
+    const result = await completeOrder();
     if (!result.ok) {
       showToast(result.error, "error");
       return;
     }
-    showToast("주문이 완료되었습니다");
+    showToast("상품 구매가 완료되었습니다");
     router.push("/reviews?tab=writable");
   };
 

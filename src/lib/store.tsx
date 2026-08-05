@@ -16,16 +16,29 @@ import {
   type AuthUser,
 } from "./auth";
 import {
+  createOrder,
+  createReviewDb,
+  deleteCartItems,
+  ensureUserBootstrap,
+  fetchAllReviews,
+  fetchCart,
+  fetchWritable,
+  mergeGuestCartToDb,
+  updateReviewDb,
+  upsertCartItem,
+} from "./db";
+import {
   CURRENT_USER_ID,
   DEMO_WRITTEN_MARKER,
   getProduct,
   initialReviews,
   initialWritable,
 } from "./data";
+import { getSupabase } from "./supabase";
 import { buildOrderedTags, countTags } from "./tags";
 import type { CartItem, Review, SituationTags, WritableItem } from "./types";
 
-const STORAGE_KEY = "kurly-situation-tag-mvp-v3";
+const STORAGE_KEY = "kurly-situation-tag-mvp-v4";
 
 type Toast = {
   id: number;
@@ -43,26 +56,28 @@ type AppState = {
   hydrated: boolean;
   user: AuthUser | null;
   isLoggedIn: boolean;
-  setUser: (user: AuthUser | null) => void;
+  setUser: (user: AuthUser | null) => Promise<void>;
   logout: () => Promise<void>;
-  addToCart: (productId: string) => void;
-  setCartQuantity: (productId: string, quantity: number) => void;
-  toggleCartItem: (productId: string) => void;
-  toggleSelectAll: () => void;
-  removeCartItems: (productIds: string[]) => void;
-  removeCartItem: (productId: string) => void;
-  completeOrder: () => { ok: true; count: number } | { ok: false; error: string };
+  addToCart: (productId: string) => Promise<void>;
+  setCartQuantity: (productId: string, quantity: number) => Promise<void>;
+  toggleCartItem: (productId: string) => Promise<void>;
+  toggleSelectAll: () => Promise<void>;
+  removeCartItems: (productIds: string[]) => Promise<void>;
+  removeCartItem: (productId: string) => Promise<void>;
+  completeOrder: () => Promise<
+    { ok: true; count: number } | { ok: false; error: string }
+  >;
   showToast: (message: string, variant?: Toast["variant"]) => void;
   createReview: (input: {
     productId: string;
     content: string;
     tags: SituationTags;
-  }) => { ok: true } | { ok: false; error: string };
+  }) => Promise<{ ok: true } | { ok: false; error: string }>;
   updateReview: (input: {
     reviewId: string;
     content: string;
     tags: SituationTags;
-  }) => { ok: true } | { ok: false; error: string };
+  }) => Promise<{ ok: true } | { ok: false; error: string }>;
   getMyReviews: () => Review[];
   getProductReviews: (productId: string) => Review[];
   getWritable: () => WritableItem[];
@@ -72,9 +87,8 @@ const AppContext = createContext<AppState | null>(null);
 
 type Persisted = {
   cartItems?: CartItem[];
-  cartCount?: number;
-  reviews: Review[];
-  writable: WritableItem[];
+  reviews?: Review[];
+  writable?: WritableItem[];
 };
 
 function totalQty(items: CartItem[]) {
@@ -89,32 +103,34 @@ function makeDeadline(offsetDays: number) {
   return `${mm}.${dd}까지 작성 가능`;
 }
 
-/** 수정 플로우 데모용 시드를 로그인 유저에게 이관 (작성가능 T 상품과 겹치지 않음) */
 function claimDemoWrittenReviews(list: Review[], userId: string): Review[] {
   const alreadyHasMine = list.some(
     (r) => r.userId === userId && r.qaNote?.includes(DEMO_WRITTEN_MARKER)
   );
   if (alreadyHasMine) {
     return list.map((r) =>
-      r.userId === userId
-        ? { ...r, isMine: true }
-        : r
+      r.userId === userId ? { ...r, isMine: true } : r
     );
   }
-
   const hasAnyMine = list.some((r) => r.userId === userId);
   if (hasAnyMine) {
     return list.map((r) =>
       r.userId === userId ? { ...r, isMine: true } : { ...r, isMine: false }
     );
   }
-
   return list.map((r) => {
     if (r.qaNote?.includes(DEMO_WRITTEN_MARKER) && r.userId === CURRENT_USER_ID) {
       return { ...r, userId, isMine: true };
     }
     return { ...r, isMine: r.userId === userId };
   });
+}
+
+async function hasSupabaseSession() {
+  const sb = getSupabase();
+  if (!sb) return false;
+  const { data } = await sb.auth.getSession();
+  return !!data.session;
 }
 
 export function AppProvider({ children }: { children: ReactNode }) {
@@ -124,63 +140,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const [user, setUserState] = useState<AuthUser | null>(null);
-
-  useEffect(() => {
-    try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      let nextReviews = initialReviews;
-      let nextWritable = initialWritable;
-      if (raw) {
-        const parsed = JSON.parse(raw) as Persisted;
-        if (parsed.reviews?.length) nextReviews = parsed.reviews;
-        if (parsed.writable) nextWritable = parsed.writable;
-        if (parsed.cartItems?.length) {
-          setCartItems(parsed.cartItems);
-        }
-      }
-      const session = readSession();
-      if (session) {
-        nextReviews = claimDemoWrittenReviews(nextReviews, session.user.id);
-        setUserState(session.user);
-        // 이미 작성한 상품은 작성 가능 목록에서 제외
-        const mineIds = new Set(
-          nextReviews.filter((r) => r.userId === session.user.id).map((r) => r.productId)
-        );
-        nextWritable = nextWritable.filter((w) => !mineIds.has(w.productId));
-      }
-      setReviews(nextReviews);
-      setWritable(nextWritable);
-    } catch {
-      /* ignore */
-    }
-    setHydrated(true);
-  }, []);
-
-  useEffect(() => {
-    if (!hydrated) return;
-    const payload: Persisted = { cartItems, reviews, writable };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  }, [cartItems, reviews, writable, hydrated]);
-
-  const setUser = useCallback((next: AuthUser | null) => {
-    setUserState(next);
-    if (next) {
-      setReviews((prev) => {
-        const claimed = claimDemoWrittenReviews(prev, next.id);
-        const mineIds = new Set(
-          claimed.filter((r) => r.userId === next.id).map((r) => r.productId)
-        );
-        setWritable((w) => w.filter((item) => !mineIds.has(item.productId)));
-        return claimed;
-      });
-    }
-  }, []);
-
-  const logout = useCallback(async () => {
-    await authLogout();
-    clearSession();
-    setUserState(null);
-  }, []);
 
   const showToast = useCallback(
     (message: string, variant: Toast["variant"] = "default") => {
@@ -193,96 +152,268 @@ export function AppProvider({ children }: { children: ReactNode }) {
     []
   );
 
+  const refreshFromDb = useCallback(async (authUser: AuthUser) => {
+    const [allReviews, cart, writables] = await Promise.all([
+      fetchAllReviews(),
+      fetchCart(authUser.id),
+      fetchWritable(authUser.id),
+    ]);
+    setReviews(
+      allReviews.map((r) => ({ ...r, isMine: r.userId === authUser.id }))
+    );
+    setCartItems(cart);
+    setWritable(writables);
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        let guestCart: CartItem[] = [];
+        if (raw) {
+          const parsed = JSON.parse(raw) as Persisted;
+          if (parsed.cartItems?.length) {
+            guestCart = parsed.cartItems;
+            setCartItems(parsed.cartItems);
+          }
+          if (parsed.reviews?.length) setReviews(parsed.reviews);
+          if (parsed.writable) setWritable(parsed.writable);
+        }
+
+        const session = readSession();
+        if (session) {
+          setUserState(session.user);
+          const online = await hasSupabaseSession();
+          if (online) {
+            await ensureUserBootstrap(session.user.id, session.user.name);
+            if (guestCart.length) {
+              const merged = await mergeGuestCartToDb(
+                session.user.id,
+                guestCart
+              );
+              setCartItems(merged);
+            }
+            await refreshFromDb(session.user);
+          } else {
+            setReviews((prev) => claimDemoWrittenReviews(prev, session.user.id));
+          }
+        } else {
+          // try load public reviews from supabase even when logged out
+          try {
+            const all = await fetchAllReviews();
+            if (all.length) setReviews(all);
+          } catch {
+            /* keep seed */
+          }
+        }
+      } catch {
+        /* ignore */
+      }
+      setHydrated(true);
+    })();
+  }, [refreshFromDb]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    // guest cart only persisted locally; logged-in cart lives in DB
+    const payload: Persisted = {
+      cartItems: user ? [] : cartItems,
+      reviews: user ? undefined : reviews,
+      writable: user ? undefined : writable,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+  }, [cartItems, reviews, writable, hydrated, user]);
+
+  const setUser = useCallback(
+    async (next: AuthUser | null) => {
+      setUserState(next);
+      if (!next) return;
+      const online = await hasSupabaseSession();
+      if (!online) {
+        setReviews((prev) => claimDemoWrittenReviews(prev, next.id));
+        showToast("로컬 로그인 상태예요. Supabase 세션이 있으면 DB에 저장됩니다.");
+        return;
+      }
+      try {
+        await ensureUserBootstrap(next.id, next.name);
+        const guest = cartItems;
+        if (guest.length) {
+          const merged = await mergeGuestCartToDb(next.id, guest);
+          setCartItems(merged);
+        }
+        await refreshFromDb(next);
+      } catch (e) {
+        console.error(e);
+        showToast("데이터 동기화에 실패했어요", "error");
+      }
+    },
+    [cartItems, refreshFromDb, showToast]
+  );
+
+  const logout = useCallback(async () => {
+    await authLogout();
+    clearSession();
+    setUserState(null);
+    setCartItems([]);
+    try {
+      const all = await fetchAllReviews();
+      setReviews(all.length ? all : initialReviews);
+    } catch {
+      setReviews(initialReviews);
+    }
+    setWritable(initialWritable);
+  }, []);
+
   const addToCart = useCallback(
-    (productId: string) => {
+    async (productId: string) => {
       if (!getProduct(productId)) {
         showToast("상품을 찾을 수 없어요", "error");
         return;
       }
+      let nextItems: CartItem[] = [];
       setCartItems((prev) => {
         const existing = prev.find((i) => i.productId === productId);
-        if (existing) {
-          return prev.map((i) =>
-            i.productId === productId
-              ? { ...i, quantity: i.quantity + 1, selected: true }
-              : i
-          );
-        }
-        return [...prev, { productId, quantity: 1, selected: true }];
+        nextItems = existing
+          ? prev.map((i) =>
+              i.productId === productId
+                ? { ...i, quantity: i.quantity + 1, selected: true }
+                : i
+            )
+          : [...prev, { productId, quantity: 1, selected: true }];
+        return nextItems;
       });
       showToast("장바구니에 상품을 담았어요");
+
+      if (user && (await hasSupabaseSession())) {
+        const item = nextItems.find((i) => i.productId === productId)!;
+        try {
+          await upsertCartItem(user.id, item);
+        } catch (e) {
+          console.error(e);
+        }
+      }
     },
-    [showToast]
+    [showToast, user]
   );
 
-  const setCartQuantity = useCallback((productId: string, quantity: number) => {
-    setCartItems((prev) =>
-      prev
-        .map((i) =>
-          i.productId === productId
-            ? { ...i, quantity: Math.max(1, quantity) }
-            : i
-        )
-        .filter((i) => i.quantity > 0)
-    );
-  }, []);
+  const setCartQuantity = useCallback(
+    async (productId: string, quantity: number) => {
+      const q = Math.max(1, quantity);
+      setCartItems((prev) =>
+        prev.map((i) => (i.productId === productId ? { ...i, quantity: q } : i))
+      );
+      if (user && (await hasSupabaseSession())) {
+        const cur = cartItems.find((i) => i.productId === productId);
+        await upsertCartItem(user.id, {
+          productId,
+          quantity: q,
+          selected: cur?.selected ?? true,
+        });
+      }
+    },
+    [cartItems, user]
+  );
 
-  const toggleCartItem = useCallback((productId: string) => {
-    setCartItems((prev) =>
-      prev.map((i) =>
-        i.productId === productId ? { ...i, selected: !i.selected } : i
-      )
-    );
-  }, []);
+  const toggleCartItem = useCallback(
+    async (productId: string) => {
+      let next: CartItem | null = null;
+      setCartItems((prev) =>
+        prev.map((i) => {
+          if (i.productId !== productId) return i;
+          next = { ...i, selected: !i.selected };
+          return next;
+        })
+      );
+      if (user && next && (await hasSupabaseSession())) {
+        await upsertCartItem(user.id, next);
+      }
+    },
+    [user]
+  );
 
-  const toggleSelectAll = useCallback(() => {
+  const toggleSelectAll = useCallback(async () => {
     setCartItems((prev) => {
       if (!prev.length) return prev;
       const allSelected = prev.every((i) => i.selected);
       return prev.map((i) => ({ ...i, selected: !allSelected }));
     });
-  }, []);
+    if (user && (await hasSupabaseSession())) {
+      const allSelected = cartItems.every((i) => i.selected);
+      await Promise.all(
+        cartItems.map((i) =>
+          upsertCartItem(user.id, { ...i, selected: !allSelected })
+        )
+      );
+    }
+  }, [cartItems, user]);
 
-  const removeCartItems = useCallback((productIds: string[]) => {
-    const set = new Set(productIds);
-    setCartItems((prev) => prev.filter((i) => !set.has(i.productId)));
-  }, []);
+  const removeCartItems = useCallback(
+    async (productIds: string[]) => {
+      const set = new Set(productIds);
+      setCartItems((prev) => prev.filter((i) => !set.has(i.productId)));
+      if (user && (await hasSupabaseSession())) {
+        await deleteCartItems(user.id, productIds);
+      }
+    },
+    [user]
+  );
 
-  const removeCartItem = useCallback((productId: string) => {
-    setCartItems((prev) => prev.filter((i) => i.productId !== productId));
-  }, []);
+  const removeCartItem = useCallback(
+    async (productId: string) => {
+      await removeCartItems([productId]);
+    },
+    [removeCartItems]
+  );
 
-  const completeOrder = useCallback(() => {
+  const completeOrder = useCallback(async () => {
     const selected = cartItems.filter((i) => i.selected);
     if (!selected.length) {
       return { ok: false as const, error: "주문할 상품을 선택해주세요" };
     }
+    if (!user) {
+      return { ok: false as const, error: "로그인이 필요해요" };
+    }
 
-    setWritable((prev) => {
-      const existing = new Set(prev.map((w) => w.productId));
-      const next = [...prev];
-      selected.forEach((item, idx) => {
-        if (existing.has(item.productId)) return;
-        // already reviewed → skip writable
-        const alreadyReviewed = reviews.some(
-          (r) => r.productId === item.productId && user && r.userId === user.id
-        );
-        if (alreadyReviewed) return;
-        next.push({
-          productId: item.productId,
-          deadline: makeDeadline(14 + idx),
+    try {
+      if (await hasSupabaseSession()) {
+        await createOrder({ userId: user.id, items: cartItems });
+        const writables = await fetchWritable(user.id);
+        setWritable(writables);
+        setCartItems([]);
+      } else {
+        // local fallback fake payment
+        setWritable((prev) => {
+          const existing = new Set(prev.map((w) => w.productId));
+          const next = [...prev];
+          selected.forEach((item, idx) => {
+            if (existing.has(item.productId)) return;
+            const alreadyReviewed = reviews.some(
+              (r) => r.productId === item.productId && r.userId === user.id
+            );
+            if (alreadyReviewed) return;
+            next.push({
+              productId: item.productId,
+              deadline: makeDeadline(14 + idx),
+            });
+            existing.add(item.productId);
+          });
+          return next;
         });
-        existing.add(item.productId);
-      });
-      return next;
-    });
-
-    setCartItems((prev) => prev.filter((i) => !i.selected));
-    return { ok: true as const, count: selected.length };
+        setCartItems((prev) => prev.filter((i) => !i.selected));
+      }
+      return { ok: true as const, count: selected.length };
+    } catch (e) {
+      console.error(e);
+      return { ok: false as const, error: "결제(주문) 처리에 실패했어요" };
+    }
   }, [cartItems, reviews, user]);
 
   const createReview = useCallback(
-    (input: { productId: string; content: string; tags: SituationTags }) => {
+    async (input: {
+      productId: string;
+      content: string;
+      tags: SituationTags;
+    }) => {
       if (typeof navigator !== "undefined" && navigator.onLine === false) {
         return { ok: false as const, error: "NETWORK" };
       }
@@ -291,64 +422,96 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (input.content.trim().length < 10) {
         return { ok: false as const, error: "후기를 10자 이상 작성해주세요" };
       }
+      if (!user) return { ok: false as const, error: "로그인이 필요해요" };
 
-      const userId = user?.id;
-      if (!userId) return { ok: false as const, error: "NETWORK" };
+      try {
+        if (await hasSupabaseSession()) {
+          const review = await createReviewDb({
+            userId: user.id,
+            userName: user.name,
+            productId: input.productId,
+            content: input.content,
+            tags: input.tags,
+          });
+          setReviews((prev) => [review, ...prev]);
+          setWritable((prev) => prev.filter((w) => w.productId !== product.id));
+          return { ok: true as const };
+        }
 
-      const ordered = buildOrderedTags(input.tags);
-      const review: Review = {
-        id: `R-NEW-${product.id}-${Date.now()}`,
-        productId: product.id,
-        productName: product.name,
-        userId,
-        rating: 5,
-        createdAt: new Date().toISOString().slice(0, 16).replace("T", " "),
-        content: input.content.trim(),
-        charCount: input.content.trim().length,
-        situationTags: input.tags,
-        orderedTags: ordered,
-        tagCount: countTags(input.tags),
-        showBadge: ordered.length > 0,
-        hasPhoto: false,
-        photos: [],
-        helpful: 0,
-        isMine: true,
-      };
-
-      setReviews((prev) => [review, ...prev]);
-      setWritable((prev) => prev.filter((w) => w.productId !== product.id));
-      return { ok: true as const };
+        const ordered = buildOrderedTags(input.tags);
+        const review: Review = {
+          id: `R-NEW-${product.id}-${Date.now()}`,
+          productId: product.id,
+          productName: product.name,
+          userId: user.id,
+          rating: 5,
+          createdAt: new Date().toISOString().slice(0, 16).replace("T", " "),
+          content: input.content.trim(),
+          charCount: input.content.trim().length,
+          situationTags: input.tags,
+          orderedTags: ordered,
+          tagCount: countTags(input.tags),
+          showBadge: ordered.length > 0,
+          hasPhoto: false,
+          photos: [],
+          helpful: 0,
+          isMine: true,
+        };
+        setReviews((prev) => [review, ...prev]);
+        setWritable((prev) => prev.filter((w) => w.productId !== product.id));
+        return { ok: true as const };
+      } catch (e) {
+        console.error(e);
+        return { ok: false as const, error: "NETWORK" };
+      }
     },
     [user]
   );
 
   const updateReview = useCallback(
-    (input: { reviewId: string; content: string; tags: SituationTags }) => {
+    async (input: {
+      reviewId: string;
+      content: string;
+      tags: SituationTags;
+    }) => {
       if (typeof navigator !== "undefined" && navigator.onLine === false) {
         return { ok: false as const, error: "NETWORK" };
       }
       if (input.content.trim().length < 10) {
         return { ok: false as const, error: "후기를 10자 이상 작성해주세요" };
       }
-      const ordered = buildOrderedTags(input.tags);
-      setReviews((prev) =>
-        prev.map((r) =>
-          r.id === input.reviewId
-            ? {
-                ...r,
-                content: input.content.trim(),
-                charCount: input.content.trim().length,
-                situationTags: input.tags,
-                orderedTags: ordered,
-                tagCount: countTags(input.tags),
-                showBadge: ordered.length > 0,
-              }
-            : r
-        )
-      );
-      return { ok: true as const };
+      try {
+        if (user && (await hasSupabaseSession())) {
+          await updateReviewDb({
+            userId: user.id,
+            reviewId: input.reviewId,
+            content: input.content,
+            tags: input.tags,
+          });
+        }
+        const ordered = buildOrderedTags(input.tags);
+        setReviews((prev) =>
+          prev.map((r) =>
+            r.id === input.reviewId
+              ? {
+                  ...r,
+                  content: input.content.trim(),
+                  charCount: input.content.trim().length,
+                  situationTags: input.tags,
+                  orderedTags: ordered,
+                  tagCount: countTags(input.tags),
+                  showBadge: ordered.length > 0,
+                }
+              : r
+          )
+        );
+        return { ok: true as const };
+      } catch (e) {
+        console.error(e);
+        return { ok: false as const, error: "NETWORK" };
+      }
     },
-    []
+    [user]
   );
 
   const getMyReviews = useCallback(() => {
