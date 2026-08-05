@@ -27,7 +27,7 @@ export function Header({
   border = true,
 }: Props) {
   const router = useRouter();
-  const { cartCount } = useApp();
+  const { displayCartCount } = useApp();
 
   return (
     <header
@@ -74,14 +74,14 @@ export function Header({
               <IconBell className="w-[22px] h-[22px] text-kurly-gold" />
             </button>
           )}
-          <div className="relative p-1.5" aria-label="장바구니">
+          <Link href="/cart" className="relative p-1.5" aria-label="장바구니">
             <IconCart className="w-[22px] h-[22px]" />
-            {cartCount > 0 && (
+            {displayCartCount > 0 && (
               <span className="absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-kurly-cart text-white text-[10px] font-bold leading-4 text-center">
-                {cartCount > 99 ? "99+" : cartCount}
+                {displayCartCount > 99 ? "99+" : displayCartCount}
               </span>
             )}
-          </div>
+          </Link>
         </div>
       </div>
     </header>

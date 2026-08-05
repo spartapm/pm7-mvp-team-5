@@ -7,7 +7,7 @@
       "price": 9980,
       "salePrice": 4980,
       "unit": "450g",
-      "reviewCount": 25903,
+      "reviewCount": 13,
       "writableForMaster": true
     },
     {
@@ -17,7 +17,7 @@
       "price": 15900,
       "salePrice": 9520,
       "unit": "678g",
-      "reviewCount": 21977,
+      "reviewCount": 13,
       "writableForMaster": true
     },
     {
@@ -27,7 +27,7 @@
       "price": 24750,
       "salePrice": 17900,
       "unit": "250g",
-      "reviewCount": 73205,
+      "reviewCount": 13,
       "writableForMaster": true
     },
     {
@@ -37,7 +37,7 @@
       "price": 5480,
       "salePrice": 4480,
       "unit": "60g",
-      "reviewCount": 115028,
+      "reviewCount": 12,
       "writableForMaster": false
     },
     {
@@ -47,7 +47,7 @@
       "price": 4680,
       "salePrice": 3780,
       "unit": "400g",
-      "reviewCount": 82454,
+      "reviewCount": 12,
       "writableForMaster": false
     },
     {
@@ -57,7 +57,7 @@
       "price": 6000,
       "salePrice": 5100,
       "unit": "옵션별 상이",
-      "reviewCount": 18040,
+      "reviewCount": 12,
       "writableForMaster": false
     },
     {
@@ -67,7 +67,7 @@
       "price": 2780,
       "salePrice": 2780,
       "unit": "900ml",
-      "reviewCount": 659576,
+      "reviewCount": 12,
       "writableForMaster": false
     },
     {
@@ -77,7 +77,7 @@
       "price": 6480,
       "salePrice": 5500,
       "unit": "옵션별 상이",
-      "reviewCount": 63047,
+      "reviewCount": 12,
       "writableForMaster": false
     }
   ],
@@ -284,7 +284,7 @@
     },
     "MASTER01": {
       "id": "MASTER01",
-      "nickname": "마스터QA계정",
+      "nickname": "오컬리",
       "grade": "VVIP"
     }
   },
@@ -321,7 +321,7 @@
       "content": "겉바속촉! 딱 원하는 식감이라 재구매 의사 있습니다.",
       "charCount": 29,
       "situationTags": {
-        "headcount": "2~3인",
+        "headcount": "1~2인",
         "purpose": "식단",
         "companion": "혼자",
         "taste": [
@@ -330,7 +330,7 @@
         ]
       },
       "orderedTags": [
-        "2~3인",
+        "1~2인",
         "식단",
         "혼자",
         "새콤해요",
@@ -356,17 +356,15 @@
         "purpose": "식단",
         "companion": "부모님과",
         "taste": [
-          "새콤해요",
-          "매콤해요"
+          "짭짤해요"
         ]
       },
       "orderedTags": [
         "식단",
         "부모님과",
-        "새콤해요",
-        "매콤해요"
+        "짭짤해요"
       ],
-      "tagCount": 4,
+      "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
       "helpful": 79,
@@ -512,7 +510,7 @@
       "situationTags": {
         "headcount": "1~2인",
         "purpose": "술안주",
-        "companion": "친구와",
+        "companion": "아이와",
         "taste": [
           "짭짤해요",
           "달콤해요",
@@ -522,7 +520,7 @@
       "orderedTags": [
         "1~2인",
         "술안주",
-        "친구와",
+        "아이와",
         "짭짤해요",
         "달콤해요",
         "새콤해요"
@@ -617,13 +615,13 @@
       "situationTags": {
         "headcount": "4인 이상",
         "purpose": "식단",
-        "companion": "연인과",
+        "companion": "아이와",
         "taste": []
       },
       "orderedTags": [
         "4인 이상",
         "식단",
-        "연인과"
+        "아이와"
       ],
       "tagCount": 3,
       "showBadge": true,
@@ -859,7 +857,7 @@
       "situationTags": {
         "headcount": "4인 이상",
         "purpose": "식단",
-        "companion": "혼자",
+        "companion": "부모님과",
         "taste": [
           "달콤해요",
           "짭짤해요",
@@ -869,7 +867,7 @@
       "orderedTags": [
         "4인 이상",
         "식단",
-        "혼자",
+        "부모님과",
         "달콤해요",
         "짭짤해요",
         "새콤해요"
@@ -1017,14 +1015,15 @@
       "charCount": 29,
       "situationTags": {
         "headcount": null,
-        "purpose": null,
+        "purpose": "선물",
         "companion": "부모님과",
         "taste": []
       },
       "orderedTags": [
+        "선물",
         "부모님과"
       ],
-      "tagCount": 1,
+      "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
       "helpful": 21,
@@ -1044,13 +1043,13 @@
         "purpose": "술안주",
         "companion": "부모님과",
         "taste": [
-          "달콤해요"
+          "담백해요"
         ]
       },
       "orderedTags": [
         "술안주",
         "부모님과",
-        "달콤해요"
+        "담백해요"
       ],
       "tagCount": 3,
       "showBadge": true,
@@ -1137,17 +1136,17 @@
       "charCount": 27,
       "situationTags": {
         "headcount": "4인 이상",
-        "purpose": "홈파티",
+        "purpose": "식단",
         "companion": "친구와",
         "taste": [
-          "짭짤해요"
+          "담백해요"
         ]
       },
       "orderedTags": [
         "4인 이상",
-        "홈파티",
+        "식단",
         "친구와",
-        "짭짤해요"
+        "담백해요"
       ],
       "tagCount": 4,
       "showBadge": true,
@@ -1230,7 +1229,7 @@
       "charCount": 29,
       "situationTags": {
         "headcount": "2~3인",
-        "purpose": "식단",
+        "purpose": "선물",
         "companion": "친구와",
         "taste": [
           "새콤해요",
@@ -1241,7 +1240,7 @@
       },
       "orderedTags": [
         "2~3인",
-        "식단",
+        "선물",
         "친구와",
         "새콤해요",
         "짭짤해요",
@@ -1266,7 +1265,7 @@
       "situationTags": {
         "headcount": "4인 이상",
         "purpose": "홈파티",
-        "companion": "혼자",
+        "companion": "친구와",
         "taste": [
           "매콤해요",
           "담백해요",
@@ -1278,7 +1277,7 @@
       "orderedTags": [
         "4인 이상",
         "홈파티",
-        "혼자",
+        "친구와",
         "매콤해요",
         "담백해요",
         "새콤해요",
@@ -3004,6 +3003,97 @@
       "hasPhoto": false,
       "helpful": 74,
       "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R5010898-MASTER01",
+      "productId": "5010898",
+      "productName": "[2개 구매 시 50%할인][고메] 크리스피 너겟",
+      "userId": "MASTER01",
+      "rating": 5,
+      "createdAt": "2026-08-04 10:00",
+      "content": "에어프라이어에 구웠더니 겉은 바삭하고 속은 촉촉해서 온 가족이 좋아했어요. 짭짤한 맛이 딱 좋아서 아이 간식으로도 자주 만들어요.",
+      "charCount": 72,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "짭짤해요",
+          "담백해요"
+        ]
+      },
+      "orderedTags": [
+        "2~3인",
+        "일상",
+        "아이와",
+        "짭짤해요",
+        "담백해요"
+      ],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 0,
+      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
+    },
+    {
+      "id": "R1001207466-MASTER01",
+      "productId": "1001207466",
+      "productName": "[차려낸] 햄 가득 송탄식 부대찌개",
+      "userId": "MASTER01",
+      "rating": 5,
+      "createdAt": "2026-08-04 10:05",
+      "content": "재료 손질이 잘 되어 있어서 끓이기만 하면 되니 정말 편했고, 햄과 소시지가 푸짐해서 국물 맛도 진하고 짭짤했어요. 친구들과 술안주로 먹기 딱 좋았습니다.",
+      "charCount": 86,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [
+        "2~3인",
+        "술안주",
+        "친구와",
+        "짭짤해요",
+        "매콤해요"
+      ],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 0,
+      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
+    },
+    {
+      "id": "R5047857-MASTER01",
+      "productId": "5047857",
+      "productName": "[델리치오] 호주산 소고기 목초육 안심 스테이크 250g (냉장)",
+      "userId": "MASTER01",
+      "rating": 5,
+      "createdAt": "2026-08-04 10:10",
+      "content": "손질이 깔끔하게 되어 있어서 굽기만 해도 레스토랑에서 먹는 듯한 맛이 났어요. 지방이 적당히 있어 담백하면서도 부드러워서 부모님 모시고 먹기 좋았습니다.",
+      "charCount": 85,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [
+        "2~3인",
+        "일상",
+        "부모님과",
+        "담백해요"
+      ],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 0,
+      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
     }
   ]
 }

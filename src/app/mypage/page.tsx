@@ -1,20 +1,48 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { BottomNav } from "@/components/BottomNav";
 import { Header } from "@/components/Header";
 import { MobileShell } from "@/components/MobileShell";
 import { useApp } from "@/lib/store";
 
 export default function MyPage() {
-  const { getWritable } = useApp();
+  const router = useRouter();
+  const { getWritable, user, isLoggedIn, hydrated } = useApp();
   const writableCount = getWritable().length;
+
+  useEffect(() => {
+    if (hydrated && !isLoggedIn) {
+      router.replace(`/login?redirect=${encodeURIComponent("/mypage")}`);
+    }
+  }, [hydrated, isLoggedIn, router]);
+
+  if (!hydrated || !isLoggedIn) {
+    return (
+      <MobileShell>
+        <div className="py-24 text-center text-kurly-muted text-[14px]">
+          로그인 확인 중…
+        </div>
+      </MobileShell>
+    );
+  }
+
+  const displayName = user?.name || "회원";
 
   return (
     <MobileShell>
       <Header title="마이컬리" titleAlign="left" showBell border={false} />
       <main className="pb-[72px]">
-        <div className="mx-4 mt-2 h-[96px] rounded-[10px] bg-[#EDEDED] flex items-center justify-center text-center px-4">
+        <div className="px-4 pt-3 pb-4">
+          <p className="text-[20px] font-bold tracking-tight">
+            <span className="text-kurly-purple">반가워요!</span>{" "}
+            <span className="text-kurly-ink">{displayName}님</span>
+          </p>
+        </div>
+
+        <div className="mx-4 h-[96px] rounded-[10px] bg-[#EDEDED] flex items-center justify-center text-center px-4">
           <p className="text-[13px] text-kurly-muted leading-relaxed">
             혜택 · 적립금 영역
             <br />

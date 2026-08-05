@@ -57,3 +57,9 @@ export type WritableItem = {
   productId: string;
   deadline: string;
 };
+
+export type CartItem = {
+  productId: string;
+  quantity: number;
+  selected: boolean;
+};

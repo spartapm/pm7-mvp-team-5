@@ -48,20 +48,38 @@ export function ReviewForm({
     setSubmitting(true);
     setError(null);
 
+    if (typeof navigator !== "undefined" && navigator.onLine === false) {
+      const msg =
+        mode === "create"
+          ? "리뷰 등록에 실패했어요. 다시 시도해주세요"
+          : "리뷰 수정에 실패했어요. 다시 시도해주세요";
+      setError(msg);
+      showToast(msg, "error");
+      setSubmitting(false);
+      return;
+    }
+
     const result =
       mode === "create"
         ? createReview({ productId: product.id, content, tags })
         : updateReview({ reviewId: reviewId!, content, tags });
 
     if (!result.ok) {
-      setError(result.error);
+      // 예외 와이어프레임: 태그 선택은 유지한 채 에러 노출 후 재시도 가능
+      const msg =
+        mode === "create"
+          ? "리뷰 등록에 실패했어요. 다시 시도해주세요"
+          : "리뷰 수정에 실패했어요. 다시 시도해주세요";
+      setError(msg);
+      showToast(msg, "error");
       setSubmitting(false);
       return;
     }
 
     if (mode === "create") {
       showToast("후기가 정상적으로 등록되었습니다.");
-      router.replace("/reviews?tab=writable");
+      // 스펙 #28: 작성 가능 목록에서 제외 + "작성한 후기" 탭으로 이동
+      router.replace("/reviews?tab=written");
     } else {
       showToast("후기가 정상적으로 수정되었습니다.");
       router.replace("/reviews?tab=written");

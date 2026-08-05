@@ -61,7 +61,8 @@ function ProductDetailInner() {
               ["inquiry", "문의"],
             ] as const
           ).map(([key, label]) => {
-            const enabled = key === "description" || key === "reviews";
+            // 스펙 #35·와이어프레임: 후기 탭만 활성 (상품설명/상세정보/문의 클릭 무반응)
+            const enabled = key === "reviews";
             const active =
               (key === "description" && tab === "description") ||
               (key === "reviews" && tab === "reviews");
@@ -71,21 +72,17 @@ function ProductDetailInner() {
                 type="button"
                 disabled={!enabled}
                 onClick={() => {
-                  if (key === "description") {
-                    setTab("description");
-                    router.replace(`/products/${product.id}`);
-                  }
                   if (key === "reviews") {
                     setTab("reviews");
                     router.replace(`/products/${product.id}?tab=reviews`);
                   }
                 }}
                 className={`h-11 truncate px-1 ${
-                  !enabled
-                    ? "text-kurly-faint"
-                    : active
-                      ? "text-kurly-purple font-bold border-b-2 border-kurly-purple"
-                      : "text-kurly-sub"
+                  active
+                    ? "text-kurly-purple font-bold border-b-2 border-kurly-purple"
+                    : enabled
+                      ? "text-kurly-sub"
+                      : "text-kurly-faint"
                 }`}
               >
                 {label}
@@ -150,23 +147,20 @@ function ProductDetailInner() {
               <p className="text-[14px] font-bold text-kurly-ink">
                 총 {reviews.length.toLocaleString()}개
               </p>
-              <div className="flex items-center gap-3 text-[13px] text-kurly-sub">
-                <button type="button" className="inline-flex items-center gap-0.5">
+              <div className="flex items-center gap-3 text-[13px] text-kurly-sub pointer-events-none">
+                <span className="inline-flex items-center gap-0.5">
                   추천순 <span className="text-[10px]">▾</span>
-                </button>
-                <button type="button" className="inline-flex items-center gap-1">
+                </span>
+                <span className="inline-flex items-center gap-1">
                   <FilterIcon />
                   필터
-                </button>
+                </span>
               </div>
             </div>
             <div className="px-4 pt-3 pb-1">
-              <button
-                type="button"
-                className="h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white"
-              >
+              <span className="inline-flex h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white items-center pointer-events-none">
                 상품 옵션 ▾
-              </button>
+              </span>
             </div>
 
             {!hydrated || loadingReviews ? (
@@ -196,7 +190,7 @@ function ProductDetailInner() {
         </button>
         <button
           type="button"
-          onClick={addToCart}
+          onClick={() => addToCart(product.id)}
           className="flex-1 h-12 rounded-[6px] bg-kurly-purple text-white text-[16px] font-bold active:bg-kurly-purple-dark"
         >
           장바구니 담기

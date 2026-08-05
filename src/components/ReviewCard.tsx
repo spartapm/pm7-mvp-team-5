@@ -57,10 +57,10 @@ export function ReviewCardSkeleton() {
   return (
     <div className="px-4 py-5 border-b-8 border-[#F5F5F5]">
       <div className="flex items-center gap-2 mb-3">
-        <div className="skeleton w-10 h-4 rounded-[3px]" />
-        <div className="skeleton w-14 h-4 rounded" />
+        <div className="skeleton w-8 h-8 rounded-full flex-shrink-0" />
+        <div className="skeleton w-16 h-4 rounded" />
       </div>
-      <div className="skeleton w-44 h-3 rounded mb-3" />
+      <div className="skeleton w-48 h-3 rounded mb-3" />
       <div className="flex gap-1.5 mb-3">
         <div className="skeleton w-14 h-7 rounded-full" />
         <div className="skeleton w-14 h-7 rounded-full" />
@@ -72,7 +72,8 @@ export function ReviewCardSkeleton() {
         <div className="skeleton w-24 h-24 rounded-[6px]" />
       </div>
       <div className="skeleton w-full h-3 rounded mb-2" />
-      <div className="skeleton w-[80%] h-3 rounded" />
+      <div className="skeleton w-[90%] h-3 rounded mb-2" />
+      <div className="skeleton w-[70%] h-3 rounded" />
     </div>
   );
 }

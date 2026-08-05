@@ -2,26 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useApp } from "@/lib/store";
 import { IconCategory, IconHome, IconSearch, IconUser } from "./Icons";
-
-const items = [
-  { href: "/", label: "홈", icon: IconHome, active: true },
-  { href: "#", label: "카테고리", icon: IconCategory, active: false },
-  { href: "#", label: "검색", icon: IconSearch, active: false },
-  { href: "/mypage", label: "마이페이지", icon: IconUser, active: true },
-] as const;
 
 export function BottomNav() {
   const pathname = usePathname();
+  const { isLoggedIn } = useApp();
+
+  const mypageHref = !isLoggedIn
+    ? `/login?redirect=${encodeURIComponent("/mypage")}`
+    : "/mypage";
+
+  const items = [
+    { href: "/", label: "홈", icon: IconHome, active: true },
+    { href: "#", label: "카테고리", icon: IconCategory, active: false },
+    { href: "#", label: "검색", icon: IconSearch, active: false },
+    { href: mypageHref, label: "마이페이지", icon: IconUser, active: true },
+  ] as const;
 
   return (
     <nav className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-mobile z-40 border-t border-kurly-line-strong bg-white">
       <ul className="grid grid-cols-4 h-[56px] pb-[env(safe-area-inset-bottom)]">
         {items.map((item) => {
           const isCurrent =
-            item.href === "/"
+            item.label === "홈"
               ? pathname === "/"
-              : pathname.startsWith(item.href) && item.href !== "#";
+              : item.label === "마이페이지"
+                ? pathname.startsWith("/mypage") || pathname.startsWith("/login")
+                : false;
           const Icon = item.icon;
           const enabled = item.active;
 

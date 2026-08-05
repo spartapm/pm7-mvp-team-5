@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Header } from "@/components/Header";
 import { MobileShell } from "@/components/MobileShell";
@@ -12,10 +12,28 @@ export default function ReviewsClient() {
   const router = useRouter();
   const params = useSearchParams();
   const tab = params.get("tab") === "written" ? "written" : "writable";
-  const { getWritable, getMyReviews, hydrated } = useApp();
+  const { getWritable, getMyReviews, hydrated, isLoggedIn } = useApp();
 
   const writable = getWritable();
   const myReviews = useMemo(() => getMyReviews(), [getMyReviews]);
+
+  useEffect(() => {
+    if (hydrated && !isLoggedIn) {
+      router.replace(
+        `/login?redirect=${encodeURIComponent(`/reviews?tab=${tab}`)}`
+      );
+    }
+  }, [hydrated, isLoggedIn, router, tab]);
+
+  if (!hydrated || !isLoggedIn) {
+    return (
+      <MobileShell bg="bg-white">
+        <div className="py-24 text-center text-kurly-muted text-[14px]">
+          로그인 확인 중…
+        </div>
+      </MobileShell>
+    );
+  }
 
   return (
     <MobileShell bg="bg-white">

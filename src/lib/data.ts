@@ -99,8 +99,11 @@ const baseReviews: Review[] = (
 /**
  * 마스터 계정 작성 후기 시드 (수정 플로우·프리필용)
  * - 작성 가능(T) 상품과 겹치지 않도록 F 상품에 배치
+ * - 로그인 시 현재 유저 ID로 이관되어 "작성한 후기"에만 노출
  * - 태그 있음 / 태그 없음 케이스를 모두 포함
  */
+export const DEMO_WRITTEN_MARKER = "DEMO_WRITTEN_SEED";
+
 function buildMasterSeedReviews(): Review[] {
   const writtenProducts = products.filter((p) => !p.writableForMaster).slice(0, 3);
   const configs = [
@@ -148,9 +151,9 @@ function buildMasterSeedReviews(): Review[] {
         idx !== 2 ? [REVIEW_PHOTOS[idx], REVIEW_PHOTOS[idx + 1]] : [],
       helpful: 12 + idx,
       qaNote: withTags
-        ? "마스터 작성 후기(태그 있음) - 수정 프리필"
-        : "마스터 작성 후기(태그 없음) - 수정 시 미선택 상태",
-      isMine: true,
+        ? `${DEMO_WRITTEN_MARKER} 태그 있음 - 수정 프리필`
+        : `${DEMO_WRITTEN_MARKER} 태그 없음 - 수정 시 미선택 상태`,
+      isMine: false,
     } satisfies Review;
   });
 }

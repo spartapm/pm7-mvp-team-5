@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { Header } from "@/components/Header";
 import { MobileShell } from "@/components/MobileShell";
@@ -10,17 +11,23 @@ import { useApp } from "@/lib/store";
 export default function EditReviewPage() {
   const params = useParams<{ reviewId: string }>();
   const router = useRouter();
-  const { reviews, hydrated } = useApp();
+  const { reviews, hydrated, isLoggedIn } = useApp();
   const review = reviews.find((r) => r.id === params.reviewId);
   const product = review ? getProduct(review.productId) : undefined;
 
-  if (!hydrated) {
+  useEffect(() => {
+    if (hydrated && !isLoggedIn) {
+      router.replace(
+        `/login?redirect=${encodeURIComponent(`/reviews/edit/${params.reviewId}`)}`
+      );
+    }
+  }, [hydrated, isLoggedIn, router, params.reviewId]);
+
+  if (!hydrated || !isLoggedIn) {
     return (
       <MobileShell>
-        <Header title="후기 수정" showBack />
-        <div className="p-4 space-y-3">
-          <div className="skeleton h-16 rounded-lg" />
-          <div className="skeleton h-48 rounded-xl" />
+        <div className="py-24 text-center text-kurly-muted text-[14px]">
+          로그인 확인 중…
         </div>
       </MobileShell>
     );
