@@ -7,19 +7,21 @@ export function ToastHost() {
   if (!toasts.length) return null;
 
   return (
-    <div className="pointer-events-none fixed bottom-[88px] left-1/2 -translate-x-1/2 z-50 w-full max-w-mobile px-5">
-      {toasts.map((t) => (
-        <div
-          key={t.id}
-          className={`animate-toast-in mb-2 rounded-[8px] px-4 py-3.5 text-[13px] text-center shadow-toast ${
-            t.variant === "error"
-              ? "bg-[#FFF1F0] text-[#D4380D] border border-[#FFA39E]"
-              : "bg-[#333333]/92 text-white"
-          }`}
-        >
-          {t.message}
-        </div>
-      ))}
+    10|    <div className="pointer-events-none fixed inset-x-0 bottom-[88px] z-[100] flex justify-center px-4">
+      <div className="w-full max-w-mobile flex flex-col items-center gap-2 px-5">
+        {toasts.map((t) => (
+          <div
+            key={t.id}
+            className={`animate-toast-in w-full rounded-[8px] px-4 py-3.5 text-[13px] font-medium text-center shadow-toast ${
+              t.variant === "error"
+                ? "bg-[#FFF1F0] text-[#CF1322] border border-[#FFA39E]"
+                : "bg-[#333333] text-white"
+            }`}
+          >
+            {t.message}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
