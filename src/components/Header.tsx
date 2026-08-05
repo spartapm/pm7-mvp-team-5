@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { COMING_SOON_MESSAGE } from "@/lib/placeholders";
 import { useApp } from "@/lib/store";
 import { IconBack, IconBell, IconCart, IconHome } from "./Icons";
 
@@ -27,7 +28,7 @@ export function Header({
   border = true,
 }: Props) {
   const router = useRouter();
-  const { displayCartCount } = useApp();
+  const { displayCartCount, showToast } = useApp();
 
   return (
     <header
@@ -70,7 +71,12 @@ export function Header({
             </Link>
           )}
           {showBell && (
-            <button type="button" aria-label="알림" className="p-1.5">
+            <button
+              type="button"
+              aria-label="알림"
+              className="p-1.5"
+              onClick={() => showToast(COMING_SOON_MESSAGE)}
+            >
               <IconBell className="w-[22px] h-[22px] text-kurly-gold" />
             </button>
           )}

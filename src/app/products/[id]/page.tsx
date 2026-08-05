@@ -7,6 +7,7 @@ import { IconHeart } from "@/components/Icons";
 import { MobileShell } from "@/components/MobileShell";
 import { ReviewCard, ReviewCardSkeleton } from "@/components/ReviewCard";
 import { formatPrice, getProduct } from "@/lib/data";
+import { COMING_SOON_MESSAGE, randomImage } from "@/lib/placeholders";
 import { useApp } from "@/lib/store";
 
 function ProductDetailInner() {
@@ -14,7 +15,8 @@ function ProductDetailInner() {
   const search = useSearchParams();
   const router = useRouter();
   const product = getProduct(params.id);
-  const { getProductReviews, addToCart, hydrated } = useApp();
+  const { getProductReviews, addToCart, hydrated, showToast } = useApp();
+  const soon = () => showToast(COMING_SOON_MESSAGE);
   const initialTab =
     search.get("tab") === "reviews" ? "reviews" : "description";
   const [tab, setTab] = useState<"description" | "reviews">(initialTab);
@@ -61,8 +63,6 @@ function ProductDetailInner() {
               ["inquiry", "문의"],
             ] as const
           ).map(([key, label]) => {
-            // 스펙 #35·와이어프레임: 후기 탭만 활성 (상품설명/상세정보/문의 클릭 무반응)
-            const enabled = key === "reviews";
             const active =
               (key === "description" && tab === "description") ||
               (key === "reviews" && tab === "reviews");
@@ -70,19 +70,23 @@ function ProductDetailInner() {
               <button
                 key={key}
                 type="button"
-                disabled={!enabled}
                 onClick={() => {
                   if (key === "reviews") {
                     setTab("reviews");
                     router.replace(`/products/${product.id}?tab=reviews`);
+                    return;
                   }
+                  if (key === "description") {
+                    setTab("description");
+                    router.replace(`/products/${product.id}`);
+                    return;
+                  }
+                  soon();
                 }}
                 className={`h-11 truncate px-1 ${
                   active
                     ? "text-kurly-purple font-bold border-b-2 border-kurly-purple"
-                    : enabled
-                      ? "text-kurly-sub"
-                      : "text-kurly-faint"
+                    : "text-kurly-sub"
                 }`}
               >
                 {label}
@@ -124,10 +128,13 @@ function ProductDetailInner() {
                   {formatPrice(product.price)}
                 </p>
               )}
-              <div className="mt-6 h-[160px] rounded-[8px] bg-[#EDEDED] flex items-center justify-center text-center px-4">
-                <p className="text-[13px] text-kurly-muted">
-                  상품 이미지 · 설명 영역
-                </p>
+              <div className="mt-6 rounded-[8px] overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={randomImage(`pdp-detail-${product.id}`, 800, 480)}
+                  alt=""
+                  className="w-full h-[160px] object-cover"
+                />
               </div>
             </div>
             <button
@@ -147,20 +154,32 @@ function ProductDetailInner() {
               <p className="text-[14px] font-bold text-kurly-ink">
                 총 {reviews.length.toLocaleString()}개
               </p>
-              <div className="flex items-center gap-3 text-[13px] text-kurly-sub pointer-events-none">
-                <span className="inline-flex items-center gap-0.5">
+              <div className="flex items-center gap-3 text-[13px] text-kurly-sub">
+                <button
+                  type="button"
+                  onClick={soon}
+                  className="inline-flex items-center gap-0.5"
+                >
                   추천순 <span className="text-[10px]">▾</span>
-                </span>
-                <span className="inline-flex items-center gap-1">
+                </button>
+                <button
+                  type="button"
+                  onClick={soon}
+                  className="inline-flex items-center gap-1"
+                >
                   <FilterIcon />
                   필터
-                </span>
+                </button>
               </div>
             </div>
             <div className="px-4 pt-3 pb-1">
-              <span className="inline-flex h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white items-center pointer-events-none">
+              <button
+                type="button"
+                onClick={soon}
+                className="h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white"
+              >
                 상품 옵션 ▾
-              </span>
+              </button>
             </div>
 
             {!hydrated || loadingReviews ? (
@@ -183,6 +202,7 @@ function ProductDetailInner() {
       <div className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-mobile bg-white border-t border-kurly-line-strong px-3 py-2.5 flex gap-2">
         <button
           type="button"
+          onClick={soon}
           className="w-12 h-12 rounded-[6px] border border-kurly-line-strong flex items-center justify-center text-kurly-ink bg-white flex-shrink-0"
           aria-label="찜"
         >

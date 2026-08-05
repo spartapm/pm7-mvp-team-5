@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { IconCamera } from "@/components/Icons";
 import { SituationTagPicker } from "@/components/SituationTagPicker";
+import { COMING_SOON_MESSAGE } from "@/lib/placeholders";
 import { EMPTY_TAGS } from "@/lib/tags";
 import type { Product, SituationTags } from "@/lib/types";
 import { useApp } from "@/lib/store";
@@ -148,6 +149,7 @@ export function ReviewForm({
         </div>
         <button
           type="button"
+          onClick={() => showToast(COMING_SOON_MESSAGE)}
           className="mt-3 w-[56px] h-[56px] rounded-[8px] border border-kurly-line-strong flex items-center justify-center text-kurly-muted bg-white"
           aria-label="사진 추가"
         >
