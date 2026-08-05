@@ -1,10 +1,11 @@
 "use client";
 
-import { FormEvent, Suspense, useMemo, useState } from "react";
+import { FormEvent, Suspense, useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Header } from "@/components/Header";
 import { MobileShell } from "@/components/MobileShell";
-import { signup, validateSignup } from "@/lib/auth";
+import { isLocalEmailTaken, signup, validateSignup } from "@/lib/auth";
+import { isValidEmail } from "@/lib/validation";
 import { useApp } from "@/lib/store";
 
 function Field({
@@ -42,6 +43,18 @@ function SignupInner() {
   const [ageChecked, setAgeChecked] = useState(false);
   const [loading, setLoading] = useState(false);
   const [serverEmailError, setServerEmailError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!email.trim() || !isValidEmail(email)) {
+      setServerEmailError(null);
+      return;
+    }
+    if (isLocalEmailTaken(email)) {
+      setServerEmailError("이미 가입된 이메일입니다");
+    } else {
+      setServerEmailError(null);
+    }
+  }, [email]);
 
   const validation = useMemo(
     () =>

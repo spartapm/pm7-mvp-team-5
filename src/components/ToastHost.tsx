@@ -7,7 +7,7 @@ export function ToastHost() {
   if (!toasts.length) return null;
 
   return (
-    10|    <div className="pointer-events-none fixed inset-x-0 bottom-[88px] z-[100] flex justify-center px-4">
+    <div className="pointer-events-none fixed inset-x-0 top-[56px] z-[100] flex justify-center px-4">
       <div className="w-full max-w-mobile flex flex-col items-center gap-2 px-5">
         {toasts.map((t) => (
           <div

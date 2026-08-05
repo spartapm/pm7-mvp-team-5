@@ -49,7 +49,7 @@ export default function CartPage() {
       showToast(result.error, "error");
       return;
     }
-    showToast("상품 구매가 완료되었습니다");
+    showToast("주문이 완료되었습니다");
     router.push("/reviews?tab=writable");
   };
 

@@ -9,17 +9,6 @@ import type {
   WritableItem,
 } from "./types";
 
-const FOOD_IMAGES = [
-  "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1600891964092-4316c288032e?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1563636619-e9143da7973b?auto=format&fit=crop&w=600&q=80",
-  "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80",
-];
-
 const REVIEW_PHOTOS = [
   "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
   "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=400&q=80",
@@ -30,17 +19,31 @@ const REVIEW_PHOTOS = [
 
 export const CURRENT_USER_ID = "MASTER01";
 
+export const assets = (seed as { assets?: Record<string, string> }).assets ?? {
+  "01_kurlylogo": "/assets/01_kurlylogo.jpg",
+  "02_carousel_5": "/assets/02_carousel_5.png",
+  "03_menuicon_1": "/assets/03_menuicon_1.png",
+  "03_menuicon_2": "/assets/03_menuicon_2.png",
+  "03_menuicon_3": "/assets/03_menuicon_3.png",
+  "03_menuicon_4": "/assets/03_menuicon_4.png",
+  "03_menuicon_5": "/assets/03_menuicon_5.png",
+  "03_menuicon_6": "/assets/03_menuicon_6.png",
+  "03_headericon_1": "/assets/03_headericon_1.png",
+  "03_headericon_2": "/assets/03_headericon_2.png",
+};
+
 export const accounts: Record<string, Account> = seed.accounts as Record<
   string,
   Account
 >;
 
-export const products: Product[] = (seed.products as Array<Omit<Product, "image">>).map(
-  (p, i) => ({
-    ...p,
-    image: FOOD_IMAGES[i % FOOD_IMAGES.length],
-  })
-);
+export const products: Product[] = (
+  seed.products as Array<Product>
+).map((p) => ({
+  ...p,
+  image: p.image || `/assets/product-${p.id}.jpg`,
+  pdpImage: p.pdpImage || p.image || `/assets/pdp-${p.id}.jpg`,
+}));
 
 function normalizeTags(raw: {
   headcount: string | null;
@@ -96,12 +99,6 @@ const baseReviews: Review[] = (
   };
 });
 
-/**
- * 마스터 계정 작성 후기 시드 (수정 플로우·프리필용)
- * - 작성 가능(T) 상품과 겹치지 않도록 F 상품에 배치
- * - 로그인 시 현재 유저 ID로 이관되어 "작성한 후기"에만 노출
- * - 태그 있음 / 태그 없음 케이스를 모두 포함
- */
 export const DEMO_WRITTEN_MARKER = "DEMO_WRITTEN_SEED";
 
 function buildMasterSeedReviews(): Review[] {
@@ -176,6 +173,20 @@ export function getProduct(id: string): Product | undefined {
 
 export function formatPrice(n: number): string {
   return `${n.toLocaleString("ko-KR")}원`;
+}
+
+export function formatReviewCount(n: number): string {
+  if (n >= 999) return "999+";
+  return String(n);
+}
+
+/** 회원이름 첫 글자 제외 ** 마스킹 (이미 마스킹된 닉네임은 그대로) */
+export function maskNickname(name: string): string {
+  const trimmed = (name || "").trim();
+  if (!trimmed) return "회**";
+  if (trimmed.includes("*")) return trimmed;
+  if (trimmed.length === 1) return `${trimmed}**`;
+  return `${trimmed[0]}**`;
 }
 
 export function getAccount(userId: string): Account {

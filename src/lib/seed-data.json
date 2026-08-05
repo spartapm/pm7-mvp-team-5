@@ -1,86 +1,4 @@
 {
-  "products": [
-    {
-      "id": "5010898",
-      "name": "[2개 구매 시 50%할인][고메] 크리스피 너겟",
-      "brand": "고메",
-      "price": 9980,
-      "salePrice": 4980,
-      "unit": "450g",
-      "reviewCount": 13,
-      "writableForMaster": true
-    },
-    {
-      "id": "1001207466",
-      "name": "[차려낸] 햄 가득 송탄식 부대찌개",
-      "brand": "차려낸",
-      "price": 15900,
-      "salePrice": 9520,
-      "unit": "678g",
-      "reviewCount": 13,
-      "writableForMaster": true
-    },
-    {
-      "id": "5047857",
-      "name": "[델리치오] 호주산 소고기 목초육 안심 스테이크 250g (냉장)",
-      "brand": "델리치오",
-      "price": 24750,
-      "salePrice": 17900,
-      "unit": "250g",
-      "reviewCount": 13,
-      "writableForMaster": true
-    },
-    {
-      "id": "1000480296",
-      "name": "[비비고] 순살 생선구이 6종 (택1)",
-      "brand": "비비고",
-      "price": 5480,
-      "salePrice": 4480,
-      "unit": "60g",
-      "reviewCount": 12,
-      "writableForMaster": false
-    },
-    {
-      "id": "5097217",
-      "name": "[매일] 바이오 그릭 요거트 무가당 플레인 400g",
-      "brand": "매일유업",
-      "price": 4680,
-      "salePrice": 3780,
-      "unit": "400g",
-      "reviewCount": 12,
-      "writableForMaster": false
-    },
-    {
-      "id": "1001391829",
-      "name": "[피자로빈슨] 뉴욕 메가 슬라이스 피자 7종 (택2)",
-      "brand": "피자로빈슨",
-      "price": 6000,
-      "salePrice": 5100,
-      "unit": "옵션별 상이",
-      "reviewCount": 12,
-      "writableForMaster": false
-    },
-    {
-      "id": "5063110",
-      "name": "[연세우유 x 마켓컬리] 전용목장우유 900mL",
-      "brand": "연세우유",
-      "price": 2780,
-      "salePrice": 2780,
-      "unit": "900ml",
-      "reviewCount": 12,
-      "writableForMaster": false
-    },
-    {
-      "id": "5135831",
-      "name": "[온더고] 간편 미식 덮밥 도시락 4종 (택1)",
-      "brand": "온더고",
-      "price": 6480,
-      "salePrice": 5500,
-      "unit": "옵션별 상이",
-      "reviewCount": 12,
-      "writableForMaster": false
-    }
-  ],
   "accounts": {
     "U1001": {
       "id": "U1001",
@@ -288,6 +206,200 @@
       "grade": "VVIP"
     }
   },
+  "products": [
+    {
+      "id": "5010898",
+      "name": "[2개 구매 시 50%할인][고메] 크리스피 너겟",
+      "brand": "고메",
+      "price": 9980,
+      "salePrice": 4980,
+      "unit": "450g",
+      "reviewCount": 13,
+      "writableForMaster": true,
+      "image": "/assets/product-5010898.jpg",
+      "pdpImage": "/assets/pdp-5010898.jpg"
+    },
+    {
+      "id": "1001207466",
+      "name": "[차려낸] 햄 가득 송탄식 부대찌개",
+      "brand": "차려낸",
+      "price": 15900,
+      "salePrice": 9520,
+      "unit": "678g",
+      "reviewCount": 13,
+      "writableForMaster": true,
+      "image": "/assets/product-1001207466.jpg",
+      "pdpImage": "/assets/pdp-1001207466.jpg"
+    },
+    {
+      "id": "5047857",
+      "name": "[델리치오] 호주산 소고기 목초육 안심 스테이크 250g (냉장)",
+      "brand": "델리치오",
+      "price": 24750,
+      "salePrice": 17900,
+      "unit": "250g",
+      "reviewCount": 13,
+      "writableForMaster": true,
+      "image": "/assets/product-5047857.jpg",
+      "pdpImage": "/assets/pdp-5047857.jpg"
+    },
+    {
+      "id": "1000480296",
+      "name": "[비비고] 순살 생선구이 6종 (택1)",
+      "brand": "비비고",
+      "price": 5480,
+      "salePrice": 4480,
+      "unit": "60g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1000480296.jpg",
+      "pdpImage": "/assets/pdp-1000480296.jpg"
+    },
+    {
+      "id": "5097217",
+      "name": "[매일] 바이오 그릭 요거트 무가당 플레인 400g",
+      "brand": "매일유업",
+      "price": 4680,
+      "salePrice": 3780,
+      "unit": "400g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5097217.jpg",
+      "pdpImage": "/assets/pdp-5097217.jpg"
+    },
+    {
+      "id": "1001391829",
+      "name": "[피자로빈슨] 뉴욕 메가 슬라이스 피자 7종 (택2)",
+      "brand": "피자로빈슨",
+      "price": 6000,
+      "salePrice": 5100,
+      "unit": "옵션별 상이",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1001391829.jpg",
+      "pdpImage": "/assets/pdp-1001391829.jpg"
+    },
+    {
+      "id": "5063110",
+      "name": "[연세우유 x 마켓컬리] 전용목장우유 900mL",
+      "brand": "연세우유",
+      "price": 2780,
+      "salePrice": 2780,
+      "unit": "900ml",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5063110.jpg",
+      "pdpImage": "/assets/pdp-5063110.jpg"
+    },
+    {
+      "id": "5135831",
+      "name": "[온더고] 간편 미식 덮밥 도시락 4종 (택1)",
+      "brand": "온더고",
+      "price": 6480,
+      "salePrice": 5500,
+      "unit": "옵션별 상이",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5135831.jpg",
+      "pdpImage": "/assets/pdp-5135831.jpg"
+    },
+    {
+      "id": "5006246",
+      "name": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "brand": "김소영 아티장의 안단테",
+      "price": 14500,
+      "salePrice": 14500,
+      "unit": "200g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5006246.jpg",
+      "pdpImage": "/assets/pdp-5006246.jpg"
+    },
+    {
+      "id": "5007236",
+      "name": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "brand": "",
+      "price": 24900,
+      "salePrice": 15900,
+      "unit": "1.2kg내외",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5007236.jpg",
+      "pdpImage": "/assets/pdp-5007236.jpg"
+    },
+    {
+      "id": "1001365220",
+      "name": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "brand": "Kurly's",
+      "price": 9900,
+      "salePrice": 9140,
+      "unit": "520g(10구)",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1001365220.jpg",
+      "pdpImage": "/assets/pdp-1001365220.jpg"
+    },
+    {
+      "id": "5031395",
+      "name": "[KF365] 무 1입(1kg)",
+      "brand": "KF365",
+      "price": 3490,
+      "salePrice": 2990,
+      "unit": "1kg 이상",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5031395.jpg",
+      "pdpImage": "/assets/pdp-5031395.jpg"
+    },
+    {
+      "id": "1001549122",
+      "name": "[김구원선생] 유기농 숙주나물 500g",
+      "brand": "김구원선생",
+      "price": 2990,
+      "salePrice": 2990,
+      "unit": "500g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1001549122.jpg",
+      "pdpImage": "/assets/pdp-1001549122.jpg"
+    },
+    {
+      "id": "5025646",
+      "name": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "brand": "슈퍼너츠",
+      "price": 18000,
+      "salePrice": 15400,
+      "unit": "460g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-5025646.jpg",
+      "pdpImage": "/assets/pdp-5025646.jpg"
+    },
+    {
+      "id": "1000217187",
+      "name": "[밀도] 모닝롤 (30g X 6개입)",
+      "brand": "밀도",
+      "price": 4990,
+      "salePrice": 4491,
+      "unit": "180g",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1000217187.jpg",
+      "pdpImage": "/assets/pdp-1000217187.jpg"
+    },
+    {
+      "id": "1000831954",
+      "name": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "brand": "넉넉",
+      "price": 7800,
+      "salePrice": 7800,
+      "unit": "옵션별 상이",
+      "reviewCount": 12,
+      "writableForMaster": false,
+      "image": "/assets/product-1000831954.jpg",
+      "pdpImage": "/assets/pdp-1000831954.jpg"
+    }
+  ],
   "reviews": [
     {
       "id": "R5010898-049",
@@ -329,13 +441,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "식단",
-        "혼자",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -359,11 +465,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "식단",
-        "부모님과",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -429,9 +531,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "1~2인"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": false,
@@ -455,12 +555,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "일상",
-        "연인과",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": false,
@@ -485,13 +580,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "홈파티",
-        "아이와",
-        "달콤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -517,14 +606,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "술안주",
-        "아이와",
-        "짭짤해요",
-        "달콤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": true,
@@ -551,15 +633,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "홈파티",
-        "친구와",
-        "짭짤해요",
-        "달콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -587,16 +661,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "아이와",
-        "매콤해요",
-        "담백해요",
-        "달콤해요",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": false,
@@ -618,11 +683,7 @@
         "companion": "아이와",
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "아이와"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -644,11 +705,7 @@
         "companion": "친구와",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "선물",
-        "친구와"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -673,12 +730,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "선물",
-        "짭짤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -704,13 +756,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "일상",
-        "달콤해요",
-        "담백해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": true,
@@ -776,9 +822,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "2~3인"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": false,
@@ -802,12 +846,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "선물",
-        "아이와",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": false,
@@ -832,13 +871,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "일상",
-        "아이와",
-        "담백해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -864,14 +897,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": false,
@@ -898,15 +924,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "식단",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "매콤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -934,16 +952,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "일상",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "새콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": true,
@@ -965,11 +974,7 @@
         "companion": "연인과",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "술안주",
-        "연인과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -994,10 +999,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "매콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
@@ -1019,10 +1021,7 @@
         "companion": "부모님과",
         "taste": []
       },
-      "orderedTags": [
-        "선물",
-        "부모님과"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
@@ -1046,11 +1045,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "술안주",
-        "부모님과",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": true,
@@ -1116,9 +1111,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": true,
@@ -1142,12 +1135,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "친구와",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -1172,13 +1160,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "선물",
-        "부모님과",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -1204,14 +1186,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "아이와",
-        "달콤해요",
-        "짭짤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": false,
@@ -1238,15 +1213,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "선물",
-        "친구와",
-        "새콤해요",
-        "짭짤해요",
-        "담백해요",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": true,
@@ -1274,16 +1241,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "홈파티",
-        "친구와",
-        "매콤해요",
-        "담백해요",
-        "새콤해요",
-        "짭짤해요",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": false,
@@ -1305,11 +1263,7 @@
         "companion": "부모님과",
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "부모님과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -1333,11 +1287,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "일상",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": true,
@@ -1361,11 +1311,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "아이와",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -1387,10 +1333,7 @@
         "companion": "혼자",
         "taste": []
       },
-      "orderedTags": [
-        "식단",
-        "혼자"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -1456,9 +1399,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "1~2인"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": false,
@@ -1482,12 +1423,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "선물",
-        "친구와",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -1512,13 +1448,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "홈파티",
-        "부모님과",
-        "새콤해요",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -1544,14 +1474,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "술안주",
-        "친구와",
-        "짭짤해요",
-        "달콤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": true,
@@ -1578,15 +1501,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "홈파티",
-        "친구와",
-        "짭짤해요",
-        "달콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -1614,16 +1529,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "아이와",
-        "매콤해요",
-        "담백해요",
-        "달콤해요",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": false,
@@ -1645,11 +1551,7 @@
         "companion": "연인과",
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "연인과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -1671,10 +1573,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "식단"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -1698,11 +1597,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "일상",
-        "혼자",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -1724,10 +1619,7 @@
         "companion": "부모님과",
         "taste": []
       },
-      "orderedTags": [
-        "2~3인",
-        "부모님과"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -1793,9 +1685,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": false,
@@ -1819,12 +1709,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "일상",
-        "아이와",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -1849,13 +1734,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "술안주",
-        "친구와",
-        "짭짤해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -1881,14 +1760,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "술안주",
-        "친구와",
-        "짭짤해요",
-        "달콤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": true,
@@ -1915,15 +1787,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "홈파티",
-        "친구와",
-        "짭짤해요",
-        "달콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -1951,16 +1815,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "아이와",
-        "매콤해요",
-        "담백해요",
-        "달콤해요",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": false,
@@ -1982,11 +1837,7 @@
         "companion": "연인과",
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "연인과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -2008,10 +1859,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "홈파티"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -2035,11 +1883,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "일상",
-        "아이와",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": true,
@@ -2061,10 +1905,7 @@
         "companion": "친구와",
         "taste": []
       },
-      "orderedTags": [
-        "2~3인",
-        "친구와"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
@@ -2130,9 +1971,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "1~2인"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": true,
@@ -2156,12 +1995,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "선물",
-        "연인과",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": false,
@@ -2186,13 +2020,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "식단",
-        "부모님과",
-        "담백해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": true,
@@ -2218,14 +2046,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "부모님과",
-        "달콤해요",
-        "담백해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": true,
@@ -2252,15 +2073,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "식단",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "매콤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -2288,16 +2101,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "일상",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "새콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": true,
@@ -2319,11 +2123,7 @@
         "companion": "연인과",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "술안주",
-        "연인과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -2345,10 +2145,7 @@
         "companion": "아이와",
         "taste": []
       },
-      "orderedTags": [
-        "일상",
-        "아이와"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -2372,10 +2169,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
@@ -2397,11 +2191,7 @@
         "companion": "혼자",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "식단",
-        "혼자"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -2467,9 +2257,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "2~3인"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": true,
@@ -2493,12 +2281,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "일상",
-        "부모님과",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -2523,13 +2306,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "선물",
-        "연인과",
-        "달콤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -2555,14 +2332,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "아이와",
-        "달콤해요",
-        "짭짤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": false,
@@ -2589,15 +2359,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "식단",
-        "친구와",
-        "새콤해요",
-        "짭짤해요",
-        "담백해요",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": true,
@@ -2625,16 +2387,7 @@
           "달콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "홈파티",
-        "혼자",
-        "매콤해요",
-        "담백해요",
-        "새콤해요",
-        "짭짤해요",
-        "달콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": false,
@@ -2656,11 +2409,7 @@
         "companion": "부모님과",
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "부모님과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -2682,10 +2431,7 @@
         "companion": "혼자",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "혼자"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": true,
@@ -2709,10 +2455,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "일상",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 2,
       "showBadge": true,
       "hasPhoto": false,
@@ -2734,11 +2477,7 @@
         "companion": "친구와",
         "taste": []
       },
-      "orderedTags": [
-        "2~3인",
-        "술안주",
-        "친구와"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": true,
@@ -2804,9 +2543,7 @@
         "companion": null,
         "taste": []
       },
-      "orderedTags": [
-        "4인 이상"
-      ],
+      "orderedTags": [],
       "tagCount": 1,
       "showBadge": true,
       "hasPhoto": false,
@@ -2830,12 +2567,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "1~2인",
-        "식단",
-        "아이와",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": true,
@@ -2860,13 +2592,7 @@
           "짭짤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "홈파티",
-        "부모님과",
-        "새콤해요",
-        "짭짤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -2892,14 +2618,7 @@
           "새콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "식단",
-        "혼자",
-        "달콤해요",
-        "짭짤해요",
-        "새콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 6,
       "showBadge": true,
       "hasPhoto": false,
@@ -2926,15 +2645,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "식단",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "매콤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 7,
       "showBadge": true,
       "hasPhoto": false,
@@ -2962,16 +2673,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "4인 이상",
-        "일상",
-        "부모님과",
-        "달콤해요",
-        "짭짤해요",
-        "새콤해요",
-        "담백해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 8,
       "showBadge": true,
       "hasPhoto": true,
@@ -2993,11 +2695,7 @@
         "companion": "연인과",
         "taste": []
       },
-      "orderedTags": [
-        "1~2인",
-        "술안주",
-        "연인과"
-      ],
+      "orderedTags": [],
       "tagCount": 3,
       "showBadge": true,
       "hasPhoto": false,
@@ -3022,13 +2720,7 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "아이와",
-        "짭짤해요",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -3053,13 +2745,7 @@
           "매콤해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "술안주",
-        "친구와",
-        "짭짤해요",
-        "매콤해요"
-      ],
+      "orderedTags": [],
       "tagCount": 5,
       "showBadge": true,
       "hasPhoto": false,
@@ -3083,17 +2769,2316 @@
           "담백해요"
         ]
       },
-      "orderedTags": [
-        "2~3인",
-        "일상",
-        "부모님과",
-        "담백해요"
-      ],
+      "orderedTags": [],
       "tagCount": 4,
       "showBadge": true,
       "hasPhoto": false,
       "helpful": 0,
       "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
+    },
+    {
+      "id": "R5006246-001",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1005",
+      "rating": 5,
+      "createdAt": "2025-05-12 09:00",
+      "content": "부드럽고 살살 녹는 질감이 인상적이라 와인이랑 곁들이기 좋았어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "일상",
+        "companion": null,
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 37,
+      "qaNote": null
+    },
+    {
+      "id": "R5006246-002",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1017",
+      "rating": 4,
+      "createdAt": "2025-06-02 14:00",
+      "content": "쿰쿰한 향이 세지 않아 치즈를 처음 접하는 사람도 먹기 편했어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": "아이와",
+        "taste": [
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 58,
+      "qaNote": null
+    },
+    {
+      "id": "R5006246-003",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1029",
+      "rating": 3,
+      "createdAt": "2025-03-21 20:00",
+      "content": "냉장 보관했는데도 신선하게 도착해서 만족스러웠습니다.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "식단",
+        "companion": "혼자",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 22,
+      "qaNote": null
+    },
+    {
+      "id": "R5006246-QA01",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1002",
+      "rating": 4,
+      "createdAt": "2025-02-10 08:00",
+      "content": "부드럽고 살살 녹는 질감이 인상적이라 와인이랑 곁들이기 좋았어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 45,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R5006246-QA02",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1013",
+      "rating": 5,
+      "createdAt": "2025-04-18 11:00",
+      "content": "쿰쿰한 향이 세지 않아 치즈를 처음 접하는 사람도 먹기 편했어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 12,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R5006246-QA03",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1021",
+      "rating": 4,
+      "createdAt": "2025-05-30 17:00",
+      "content": "냉장 보관했는데도 신선하게 도착해서 만족스러웠습니다.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 19,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R5006246-QA04",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1034",
+      "rating": 5,
+      "createdAt": "2025-06-15 09:00",
+      "content": "부드럽고 살살 녹는 질감이 인상적이라 와인이랑 곁들이기 좋았어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "선물",
+        "companion": "친구와",
+        "taste": [
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 63,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R5006246-QA05",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1040",
+      "rating": 2,
+      "createdAt": "2025-01-25 13:00",
+      "content": "쿰쿰한 향이 세지 않아 치즈를 처음 접하는 사람도 먹기 편했어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "홈파티",
+        "companion": "부모님과",
+        "taste": [
+          "새콤해요",
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 8,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R5006246-QA06",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1006",
+      "rating": 3,
+      "createdAt": "2025-07-08 10:00",
+      "content": "부드럽고 살살 녹는 질감이 인상적이라 와인이랑 곁들이기 좋았어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 28,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5006246-QA07",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1019",
+      "rating": 4,
+      "createdAt": "2025-02-16 09:00",
+      "content": "쿰쿰한 향이 세지 않아 치즈를 처음 접하는 사람도 먹기 편했어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "홈파티",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 15,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R5006246-QA08",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1031",
+      "rating": 5,
+      "createdAt": "2025-06-27 11:00",
+      "content": "냉장 보관했는데도 신선하게 도착해서 만족스러웠습니다.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "매콤해요",
+          "담백해요",
+          "달콤해요",
+          "새콤해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 50,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5006246-QA09",
+      "productId": "5006246",
+      "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
+      "userId": "U1038",
+      "rating": 5,
+      "createdAt": "2025-03-25 08:00",
+      "content": "부드럽고 살살 녹는 질감이 인상적이라 와인이랑 곁들이기 좋았어요.",
+      "charCount": 36,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 44,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R5007236-001",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1004",
+      "rating": 5,
+      "createdAt": "2025-04-05 07:00",
+      "content": "아삭아삭한 식감이 살아있어서 씹는 재미가 좋았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "식단",
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 71,
+      "qaNote": null
+    },
+    {
+      "id": "R5007236-002",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1016",
+      "rating": 4,
+      "createdAt": "2025-05-19 06:00",
+      "content": "새콤달콤한 과즙이 풍부해서 디저트로 딱이었습니다.",
+      "charCount": 27,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": "혼자",
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 54,
+      "qaNote": null
+    },
+    {
+      "id": "R5007236-003",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1028",
+      "rating": 3,
+      "createdAt": "2025-02-27 08:00",
+      "content": "크기와 당도가 고르지 않아 조금 아쉬운 부분도 있었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": null,
+        "companion": "부모님과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 16,
+      "qaNote": null
+    },
+    {
+      "id": "R5007236-QA01",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1003",
+      "rating": 4,
+      "createdAt": "2025-03-02 09:00",
+      "content": "아삭아삭한 식감이 살아있어서 씹는 재미가 좋았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 33,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R5007236-QA02",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1009",
+      "rating": 5,
+      "createdAt": "2025-06-08 10:00",
+      "content": "새콤달콤한 과즙이 풍부해서 디저트로 딱이었습니다.",
+      "charCount": 27,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 9,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R5007236-QA03",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1019",
+      "rating": 4,
+      "createdAt": "2025-04-22 15:00",
+      "content": "크기와 당도가 고르지 않아 조금 아쉬운 부분도 있었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 27,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R5007236-QA04",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1031",
+      "rating": 5,
+      "createdAt": "2025-07-01 12:00",
+      "content": "아삭아삭한 식감이 살아있어서 씹는 재미가 좋았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 49,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R5007236-QA05",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1037",
+      "rating": 2,
+      "createdAt": "2025-01-14 18:00",
+      "content": "새콤달콤한 과즙이 풍부해서 디저트로 딱이었습니다.",
+      "charCount": 27,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 6,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R5007236-QA06",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1023",
+      "rating": 2,
+      "createdAt": "2025-04-17 08:00",
+      "content": "아삭아삭한 식감이 살아있어서 씹는 재미가 좋았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 44,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5007236-QA07",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1008",
+      "rating": 5,
+      "createdAt": "2025-05-13 09:00",
+      "content": "새콤달콤한 과즙이 풍부해서 디저트로 딱이었습니다.",
+      "charCount": 27,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "홈파티",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 101,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R5007236-QA08",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1012",
+      "rating": 4,
+      "createdAt": "2025-04-15 12:00",
+      "content": "크기와 당도가 고르지 않아 조금 아쉬운 부분도 있었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "매콤해요",
+          "담백해요",
+          "달콤해요",
+          "새콤해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 88,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5007236-QA09",
+      "productId": "5007236",
+      "productName": "아삭 오도로끼 복숭아 1.2kg(딱복)",
+      "userId": "U1040",
+      "rating": 5,
+      "createdAt": "2025-02-25 07:00",
+      "content": "아삭아삭한 식감이 살아있어서 씹는 재미가 좋았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 76,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R1001365220-001",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1006",
+      "rating": 5,
+      "createdAt": "2025-05-08 19:00",
+      "content": "노른자 색이 진하고 고소해서 확실히 신선한 느낌이었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "홈파티",
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 88,
+      "qaNote": null
+    },
+    {
+      "id": "R1001365220-002",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1018",
+      "rating": 4,
+      "createdAt": "2025-06-25 20:00",
+      "content": "동물복지 인증이라 아이 이유식 재료로 안심하고 썼습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 41,
+      "qaNote": null
+    },
+    {
+      "id": "R1001365220-003",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1030",
+      "rating": 3,
+      "createdAt": "2025-03-11 21:00",
+      "content": "포장이 꼼꼼해서 배송 중 깨진 계란 없이 잘 받았어요.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": null,
+        "companion": "친구와",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 19,
+      "qaNote": null
+    },
+    {
+      "id": "R1001365220-QA01",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1008",
+      "rating": 5,
+      "createdAt": "2025-02-19 12:00",
+      "content": "노른자 색이 진하고 고소해서 확실히 신선한 느낌이었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 55,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R1001365220-QA02",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1022",
+      "rating": 4,
+      "createdAt": "2025-07-05 13:00",
+      "content": "동물복지 인증이라 아이 이유식 재료로 안심하고 썼습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 14,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R1001365220-QA03",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1033",
+      "rating": 5,
+      "createdAt": "2025-04-30 14:00",
+      "content": "포장이 꼼꼼해서 배송 중 깨진 계란 없이 잘 받았어요.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 23,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R1001365220-QA04",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1002",
+      "rating": 3,
+      "createdAt": "2025-06-11 15:00",
+      "content": "노른자 색이 진하고 고소해서 확실히 신선한 느낌이었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "선물",
+        "companion": "연인과",
+        "taste": [
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 31,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R1001365220-QA05",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1014",
+      "rating": 2,
+      "createdAt": "2025-01-08 16:00",
+      "content": "동물복지 인증이라 아이 이유식 재료로 안심하고 썼습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": [
+          "담백해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 5,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R1001365220-QA06",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1035",
+      "rating": 5,
+      "createdAt": "2025-07-01 13:00",
+      "content": "노른자 색이 진하고 고소해서 확실히 신선한 느낌이었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "담백해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 98,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1001365220-QA07",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1013",
+      "rating": 4,
+      "createdAt": "2025-06-27 05:00",
+      "content": "동물복지 인증이라 아이 이유식 재료로 안심하고 썼습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "매콤해요",
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 88,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R1001365220-QA08",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1004",
+      "rating": 5,
+      "createdAt": "2025-02-20 17:00",
+      "content": "포장이 꼼꼼해서 배송 중 깨진 계란 없이 잘 받았어요.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "새콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 79,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1001365220-QA09",
+      "productId": "1001365220",
+      "productName": "[Kurly's] 유기농 동물복지 유정란 10구",
+      "userId": "U1020",
+      "rating": 5,
+      "createdAt": "2025-04-01 19:00",
+      "content": "노른자 색이 진하고 고소해서 확실히 신선한 느낌이었어요.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "술안주",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 74,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R5031395-001",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1011",
+      "rating": 5,
+      "createdAt": "2025-05-27 07:00",
+      "content": "단단하고 아삭해서 무생채 만들기 딱 좋았어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 67,
+      "qaNote": null
+    },
+    {
+      "id": "R5031395-002",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1023",
+      "rating": 4,
+      "createdAt": "2025-06-30 06:00",
+      "content": "크기가 커서 여러 요리에 넉넉하게 활용할 수 있었습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": null,
+        "companion": null,
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 38,
+      "qaNote": null
+    },
+    {
+      "id": "R5031395-003",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1035",
+      "rating": 5,
+      "createdAt": "2025-02-14 05:00",
+      "content": "흙이나 이물질 없이 깨끗하게 손질되어 있었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "식단",
+        "companion": "혼자",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 52,
+      "qaNote": null
+    },
+    {
+      "id": "R5031395-QA01",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1007",
+      "rating": 4,
+      "createdAt": "2025-03-06 08:00",
+      "content": "단단하고 아삭해서 무생채 만들기 딱 좋았어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 29,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R5031395-QA02",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1015",
+      "rating": 5,
+      "createdAt": "2025-07-15 09:00",
+      "content": "크기가 커서 여러 요리에 넉넉하게 활용할 수 있었습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 11,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R5031395-QA03",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1027",
+      "rating": 4,
+      "createdAt": "2025-04-09 10:00",
+      "content": "흙이나 이물질 없이 깨끗하게 손질되어 있었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 24,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R5031395-QA04",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1039",
+      "rating": 5,
+      "createdAt": "2025-06-20 11:00",
+      "content": "단단하고 아삭해서 무생채 만들기 딱 좋았어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 46,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R5031395-QA05",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1001",
+      "rating": 2,
+      "createdAt": "2025-01-30 12:00",
+      "content": "크기가 커서 여러 요리에 넉넉하게 활용할 수 있었습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "선물",
+        "companion": "연인과",
+        "taste": [
+          "달콤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 7,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R5031395-QA06",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1022",
+      "rating": 1,
+      "createdAt": "2025-05-24 08:00",
+      "content": "단단하고 아삭해서 무생채 만들기 딱 좋았어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "아이와",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 45,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5031395-QA07",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1010",
+      "rating": 4,
+      "createdAt": "2025-06-10 13:00",
+      "content": "크기가 커서 여러 요리에 넉넉하게 활용할 수 있었습니다.",
+      "charCount": 31,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "친구와",
+        "taste": [
+          "새콤해요",
+          "짭짤해요",
+          "담백해요",
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 45,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R5031395-QA08",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1007",
+      "rating": 3,
+      "createdAt": "2025-02-05 22:00",
+      "content": "흙이나 이물질 없이 깨끗하게 손질되어 있었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "홈파티",
+        "companion": "혼자",
+        "taste": [
+          "매콤해요",
+          "담백해요",
+          "새콤해요",
+          "짭짤해요",
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 27,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5031395-QA09",
+      "productId": "5031395",
+      "productName": "[KF365] 무 1입(1kg)",
+      "userId": "U1026",
+      "rating": 3,
+      "createdAt": "2025-05-27 01:00",
+      "content": "단단하고 아삭해서 무생채 만들기 딱 좋았어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 66,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R1001549122-001",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1012",
+      "rating": 5,
+      "createdAt": "2025-05-16 12:00",
+      "content": "아삭한 식감이 살아있어서 국물 요리에 넣기 좋았어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": null,
+        "companion": "혼자",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 61,
+      "qaNote": null
+    },
+    {
+      "id": "R1001549122-002",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1024",
+      "rating": 4,
+      "createdAt": "2025-06-22 13:00",
+      "content": "잔뿌리 제거가 잘 되어 있어서 손질할 게 거의 없었습니다.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": null,
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 34,
+      "qaNote": null
+    },
+    {
+      "id": "R1001549122-003",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1036",
+      "rating": 3,
+      "createdAt": "2025-03-27 14:00",
+      "content": "양이 넉넉해서 볶음 요리에 둥뿍 넣어 먹었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 18,
+      "qaNote": null
+    },
+    {
+      "id": "R1001549122-QA01",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1010",
+      "rating": 4,
+      "createdAt": "2025-02-05 15:00",
+      "content": "아삭한 식감이 살아있어서 국물 요리에 넣기 좋았어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 42,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R1001549122-QA02",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1020",
+      "rating": 5,
+      "createdAt": "2025-07-22 16:00",
+      "content": "잔뿌리 제거가 잘 되어 있어서 손질할 게 거의 없었습니다.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 16,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R1001549122-QA03",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1032",
+      "rating": 4,
+      "createdAt": "2025-04-14 17:00",
+      "content": "양이 넉넉해서 볶음 요리에 둥뿍 넣어 먹었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 21,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R1001549122-QA04",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1005",
+      "rating": 5,
+      "createdAt": "2025-06-05 18:00",
+      "content": "아삭한 식감이 살아있어서 국물 요리에 넣기 좋았어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "식단",
+        "companion": "아이와",
+        "taste": [
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 37,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R1001549122-QA05",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1017",
+      "rating": 2,
+      "createdAt": "2025-01-19 19:00",
+      "content": "잔뿌리 제거가 잘 되어 있어서 손질할 게 거의 없었습니다.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "홈파티",
+        "companion": "부모님과",
+        "taste": [
+          "새콤해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 9,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R1001549122-QA06",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1030",
+      "rating": 4,
+      "createdAt": "2025-02-25 19:00",
+      "content": "아삭한 식감이 살아있어서 국물 요리에 넣기 좋았어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "혼자",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 112,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1001549122-QA07",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1028",
+      "rating": 5,
+      "createdAt": "2025-07-08 22:00",
+      "content": "잔뿌리 제거가 잘 되어 있어서 손질할 게 거의 없었습니다.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "매콤해요",
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 88,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R1001549122-QA08",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1004",
+      "rating": 5,
+      "createdAt": "2025-02-20 17:00",
+      "content": "양이 넉넉해서 볶음 요리에 둥뿍 넣어 먹었어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "새콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 79,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1001549122-QA09",
+      "productId": "1001549122",
+      "productName": "[김구원선생] 유기농 숙주나물 500g",
+      "userId": "U1020",
+      "rating": 5,
+      "createdAt": "2025-04-01 19:00",
+      "content": "아삭한 식감이 살아있어서 국물 요리에 넣기 좋았어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "술안주",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 74,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R5025646-001",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1005",
+      "rating": 5,
+      "createdAt": "2025-05-12 09:00",
+      "content": "땅콩 알갱이가 씹혀서 고소한 풍미가 진했어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "일상",
+        "companion": null,
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 37,
+      "qaNote": null
+    },
+    {
+      "id": "R5025646-002",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1017",
+      "rating": 4,
+      "createdAt": "2025-06-02 14:00",
+      "content": "당분이 적어서 건강하게 즐기기 좋았습니다.",
+      "charCount": 23,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": "아이와",
+        "taste": [
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 58,
+      "qaNote": null
+    },
+    {
+      "id": "R5025646-003",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1029",
+      "rating": 3,
+      "createdAt": "2025-03-21 20:00",
+      "content": "오일 분리가 있어서 먹기 전에 잘 저어줘야 했어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "식단",
+        "companion": "혼자",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 22,
+      "qaNote": null
+    },
+    {
+      "id": "R5025646-QA01",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1002",
+      "rating": 4,
+      "createdAt": "2025-02-10 08:00",
+      "content": "땅콩 알갱이가 씹혀서 고소한 풍미가 진했어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 45,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R5025646-QA02",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1013",
+      "rating": 5,
+      "createdAt": "2025-04-18 11:00",
+      "content": "당분이 적어서 건강하게 즐기기 좋았습니다.",
+      "charCount": 23,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 12,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R5025646-QA03",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1021",
+      "rating": 4,
+      "createdAt": "2025-05-30 17:00",
+      "content": "오일 분리가 있어서 먹기 전에 잘 저어줘야 했어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 19,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R5025646-QA04",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1034",
+      "rating": 5,
+      "createdAt": "2025-06-15 09:00",
+      "content": "땅콩 알갱이가 씹혀서 고소한 풍미가 진했어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "선물",
+        "companion": "친구와",
+        "taste": [
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 63,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R5025646-QA05",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1040",
+      "rating": 2,
+      "createdAt": "2025-01-25 13:00",
+      "content": "당분이 적어서 건강하게 즐기기 좋았습니다.",
+      "charCount": 23,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "홈파티",
+        "companion": "부모님과",
+        "taste": [
+          "새콤해요",
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 8,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R5025646-QA06",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1006",
+      "rating": 3,
+      "createdAt": "2025-07-08 10:00",
+      "content": "땅콩 알갱이가 씹혀서 고소한 풍미가 진했어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 28,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5025646-QA07",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1019",
+      "rating": 4,
+      "createdAt": "2025-02-16 09:00",
+      "content": "당분이 적어서 건강하게 즐기기 좋았습니다.",
+      "charCount": 23,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "홈파티",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 15,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R5025646-QA08",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1031",
+      "rating": 5,
+      "createdAt": "2025-06-27 11:00",
+      "content": "오일 분리가 있어서 먹기 전에 잘 저어줘야 했어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "매콤해요",
+          "담백해요",
+          "달콤해요",
+          "새콤해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 50,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R5025646-QA09",
+      "productId": "5025646",
+      "productName": "[슈퍼너츠] 100% 땅콩버터 대용량 3종 (택1)",
+      "userId": "U1038",
+      "rating": 5,
+      "createdAt": "2025-03-25 08:00",
+      "content": "땅콩 알갱이가 씹혀서 고소한 풍미가 진했어요.",
+      "charCount": 25,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 44,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R1000217187-001",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1004",
+      "rating": 5,
+      "createdAt": "2025-04-05 07:00",
+      "content": "춰춰하고 부드럽은 식감이랑 그럑 먹어도 맛있았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "식단",
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 71,
+      "qaNote": null
+    },
+    {
+      "id": "R1000217187-002",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1016",
+      "rating": 4,
+      "createdAt": "2025-05-19 06:00",
+      "content": "버퇀나 잠을 발람 야지 이유식 재류롬 안심하고 요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": "혼자",
+        "taste": [
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 54,
+      "qaNote": null
+    },
+    {
+      "id": "R1000217187-003",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1028",
+      "rating": 3,
+      "createdAt": "2025-02-27 08:00",
+      "content": "소비기한이 짧아서 받은 날 바로 먹어야 했어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": null,
+        "companion": "부모님과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 16,
+      "qaNote": null
+    },
+    {
+      "id": "R1000217187-QA01",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1003",
+      "rating": 4,
+      "createdAt": "2025-03-02 09:00",
+      "content": "춰춰하고 부드럽은 식감이랑 그럑 먹어도 맛있았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 33,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R1000217187-QA02",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1009",
+      "rating": 5,
+      "createdAt": "2025-06-08 10:00",
+      "content": "버퇀나 잠을 발람 야지 이유식 재류롬 안심하고 요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 9,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R1000217187-QA03",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1019",
+      "rating": 4,
+      "createdAt": "2025-04-22 15:00",
+      "content": "소비기한이 짧아서 받은 날 바로 먹어야 했어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 27,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R1000217187-QA04",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1031",
+      "rating": 5,
+      "createdAt": "2025-07-01 12:00",
+      "content": "춰춰하고 부드럽은 식감이라 그럑 먹어도 맛있았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 49,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R1000217187-QA05",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1037",
+      "rating": 2,
+      "createdAt": "2025-01-14 18:00",
+      "content": "버퇀나 잠을 발람 야지 이유식 재류롬 안심하고 요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 6,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R1000217187-QA06",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1023",
+      "rating": 2,
+      "createdAt": "2025-04-17 08:00",
+      "content": "춰춰하고 부드럽은 식감이라 그럑 먹어도 맛있았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "술안주",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 44,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1000217187-QA07",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1008",
+      "rating": 5,
+      "createdAt": "2025-05-13 09:00",
+      "content": "버퇀나 잠을 발람 야지 이유식 재류롬 안심하고 요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "홈파티",
+        "companion": "친구와",
+        "taste": [
+          "짭짤해요",
+          "달콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 101,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R1000217187-QA08",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1012",
+      "rating": 4,
+      "createdAt": "2025-04-15 12:00",
+      "content": "소비기한이 짧아서 받은 날 바로 먹어야 했어요.",
+      "charCount": 26,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "매콤해요",
+          "담백해요",
+          "달콤해요",
+          "새콤해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 88,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1000217187-QA09",
+      "productId": "1000217187",
+      "productName": "[밀도] 모닝롤 (30g X 6개입)",
+      "userId": "U1040",
+      "rating": 5,
+      "createdAt": "2025-02-25 07:00",
+      "content": "춰춰하고 부드럽은 식감이라 그럑 먹어도 맛있았어요.",
+      "charCount": 28,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "식단",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 76,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
+    },
+    {
+      "id": "R1000831954-001",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1006",
+      "rating": 5,
+      "createdAt": "2025-05-08 19:00",
+      "content": "속재료가 듬뿍 들어있어서 한 개만 먹어도 든든했어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "홈파티",
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 88,
+      "qaNote": null
+    },
+    {
+      "id": "R1000831954-002",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1018",
+      "rating": 4,
+      "createdAt": "2025-06-25 20:00",
+      "content": "에어프라이어에 데우니 겉은 바삭하고 속은 촉촉했습니다.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": null,
+        "purpose": "일상",
+        "companion": "아이와",
+        "taste": [
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 41,
+      "qaNote": null
+    },
+    {
+      "id": "R1000831954-003",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1030",
+      "rating": 3,
+      "createdAt": "2025-03-11 21:00",
+      "content": "냉동 상태라 미리 꺼내서 해동해야 하는 점이 번거로웠어요.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": null,
+        "companion": "친구와",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 2,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 19,
+      "qaNote": null
+    },
+    {
+      "id": "R1000831954-QA01",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1008",
+      "rating": 5,
+      "createdAt": "2025-02-19 12:00",
+      "content": "속재료가 듬뿍 들어있어서 한 개만 먹어도 든든했어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 55,
+      "qaNote": "태그 필드 자체 없음(기능 출시 이전 리뷰) - #16,#23,#25 확인용"
+    },
+    {
+      "id": "R1000831954-QA02",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1022",
+      "rating": 4,
+      "createdAt": "2025-07-05 13:00",
+      "content": "에어프라이어에 데우니 겉은 바삭하고 속은 촉촉했습니다.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": null,
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 0,
+      "showBadge": false,
+      "hasPhoto": false,
+      "helpful": 14,
+      "qaNote": "작성 시 4개 그룹 전부 스킵 - #8,#16,#23 확인용"
+    },
+    {
+      "id": "R1000831954-QA03",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1033",
+      "rating": 5,
+      "createdAt": "2025-04-30 14:00",
+      "content": "냉동 상태라 미리 꺼내서 해동해야 하는 점이 번거로웠어요.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": null,
+        "companion": null,
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 1,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 23,
+      "qaNote": "태그 1개만 선택 - #15 배지 최소 노출 확인용"
+    },
+    {
+      "id": "R1000831954-QA04",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1002",
+      "rating": 3,
+      "createdAt": "2025-06-11 15:00",
+      "content": "속재료가 듬뿍 들어있어서 한 개만 먹어도 든든했어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "선물",
+        "companion": "연인과",
+        "taste": [
+          "달콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 4,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 31,
+      "qaNote": "태그 정확히 4개 - #15,#18 더보기 미노출 경계값 확인용"
+    },
+    {
+      "id": "R1000831954-QA05",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1014",
+      "rating": 2,
+      "createdAt": "2025-01-08 16:00",
+      "content": "에어프라이어에 데우니 겉은 바삭하고 속은 촉촉했습니다.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": [
+          "담백해요",
+          "새콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 5,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 5,
+      "qaNote": "태그 정확히 5개 - #17 '+1더보기' 경계값 확인용"
+    },
+    {
+      "id": "R1000831954-QA06",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1035",
+      "rating": 5,
+      "createdAt": "2025-07-01 13:00",
+      "content": "속재료가 듬뿍 들어있어서 한 개만 먹어도 든든했어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "담백해요",
+          "짭짤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 6,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 98,
+      "qaNote": "태그 6개(5+1 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1000831954-QA07",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1013",
+      "rating": 4,
+      "createdAt": "2025-06-27 05:00",
+      "content": "에어프라이어에 데우니 겉은 바삭하고 속은 촉촉했습니다.",
+      "charCount": 30,
+      "situationTags": {
+        "headcount": "2~3인",
+        "purpose": "식단",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "매콤해요",
+          "담백해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 7,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 88,
+      "qaNote": "태그 7개(5+2 줄바꿈) - #21 다양한 개수 케이스 확인용"
+    },
+    {
+      "id": "R1000831954-QA08",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1004",
+      "rating": 5,
+      "createdAt": "2025-02-20 17:00",
+      "content": "냉동 상태라 미리 꺼내서 해동해야 하는 점이 번거로웠어요.",
+      "charCount": 32,
+      "situationTags": {
+        "headcount": "4인 이상",
+        "purpose": "일상",
+        "companion": "부모님과",
+        "taste": [
+          "달콤해요",
+          "짭짤해요",
+          "새콤해요",
+          "담백해요",
+          "매콤해요"
+        ]
+      },
+      "orderedTags": [],
+      "tagCount": 8,
+      "showBadge": true,
+      "hasPhoto": true,
+      "helpful": 79,
+      "qaNote": "태그 8개(5+3 줄바꿈) - #17,#20,#21,#22 확인용"
+    },
+    {
+      "id": "R1000831954-QA09",
+      "productId": "1000831954",
+      "productName": "[넉넉] 듬뿍 치아바타 3종 (택1)",
+      "userId": "U1020",
+      "rating": 5,
+      "createdAt": "2025-04-01 19:00",
+      "content": "속재료가 듬뿍 들어있어서 한 개만 먹어도 든든했어요.",
+      "charCount": 29,
+      "situationTags": {
+        "headcount": "1~2인",
+        "purpose": "술안주",
+        "companion": "연인과",
+        "taste": []
+      },
+      "orderedTags": [],
+      "tagCount": 3,
+      "showBadge": true,
+      "hasPhoto": false,
+      "helpful": 74,
+      "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
     }
-  ]
+  ],
+  "assets": {
+    "01_kurlylogo": "/assets/01_kurlylogo.jpg",
+    "02_carousel_5": "/assets/02_carousel_5.png",
+    "03_menuicon_1": "/assets/03_menuicon_1.png",
+    "03_menuicon_2": "/assets/03_menuicon_2.png",
+    "03_menuicon_3": "/assets/03_menuicon_3.png",
+    "03_menuicon_4": "/assets/03_menuicon_4.png",
+    "03_menuicon_5": "/assets/03_menuicon_5.png",
+    "03_menuicon_6": "/assets/03_menuicon_6.png",
+    "03_headericon_1": "/assets/03_headericon_1.png",
+    "03_headericon_2": "/assets/03_headericon_2.png"
+  }
 }

@@ -25,6 +25,7 @@ export type Product = {
   reviewCount: number;
   writableForMaster: boolean;
   image: string;
+  pdpImage: string;
 };
 
 export type Account = {

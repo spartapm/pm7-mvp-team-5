@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { formatPrice } from "@/lib/data";
+import { formatPrice, formatReviewCount } from "@/lib/data";
 import type { Product } from "@/lib/types";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -41,6 +41,56 @@ export function ProductCard({ product }: { product: Product }) {
           )}
         </div>
       </div>
+    </Link>
+  );
+}
+
+/** 홈 가로 스크롤용 카드 */
+export function ProductScrollCard({ product }: { product: Product }) {
+  const discounted = product.salePrice < product.price;
+  const rate = discounted
+    ? Math.round((1 - product.salePrice / product.price) * 100)
+    : 0;
+
+  return (
+    <Link
+      href={`/products/${product.id}`}
+      className="w-[148px] flex-shrink-0 active:opacity-90"
+    >
+      <div className="relative w-[148px] h-[148px] rounded-[6px] overflow-hidden bg-[#EDEDED]">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={product.image}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+      </div>
+      <p className="mt-2 text-[13px] font-medium text-kurly-ink line-clamp-2 leading-snug min-h-[34px]">
+        {product.name}
+      </p>
+      <div className="mt-1 flex items-baseline gap-1">
+        {discounted && (
+          <span className="text-[14px] font-bold text-kurly-danger">{rate}%</span>
+        )}
+        <span className="text-[15px] font-bold text-kurly-ink">
+          {formatPrice(product.salePrice)}
+        </span>
+      </div>
+      {discounted && (
+        <p className="text-[12px] text-kurly-faint line-through">
+          {formatPrice(product.price)}
+        </p>
+      )}
+      <p className="mt-1.5 flex items-center gap-1 text-[12px] text-kurly-muted">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M7 3h10a2 2 0 0 1 2 2v16l-7-3-7 3V5a2 2 0 0 1 2-2Z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+          />
+        </svg>
+        {formatReviewCount(product.reviewCount)}
+      </p>
     </Link>
   );
 }

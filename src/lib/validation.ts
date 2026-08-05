@@ -16,6 +16,6 @@ export function isValidPassword(password: string): boolean {
   return [hasLetter, hasNumber, hasSpecial].filter(Boolean).length >= 2;
 }
 
-/** 기능명세서 #11-1 문구 */
+/** 와이어프레임 회원가입 비밀번호 유효성 문구 */
 export const PASSWORD_ERROR =
-  "영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합";
+  "10자 이상, 영문/숫자/특수문자(공백 제외) 중 2개 이상 조합";

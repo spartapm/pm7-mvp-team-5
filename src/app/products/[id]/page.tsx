@@ -99,12 +99,24 @@ function ProductDetailInner() {
       <main className="pb-[84px]">
         {tab === "description" ? (
           <section>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={product.image}
-              alt=""
-              className="w-full aspect-square object-cover bg-[#EDEDED]"
-            />
+            <div className="relative w-full aspect-square bg-[#EDEDED]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={product.image}
+                alt=""
+                className="w-full h-full object-cover"
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  setTab("reviews");
+                  router.replace(`/products/${product.id}?tab=reviews`);
+                }}
+                className="absolute right-3 bottom-3 h-8 px-2.5 rounded-[4px] bg-black/55 text-white text-[12px] font-medium"
+              >
+                후기 {reviewCount.toLocaleString()}건
+              </button>
+            </div>
             <div className="p-4">
               <p className="text-[12px] text-kurly-purple font-semibold mb-1">
                 {product.brand}
@@ -131,22 +143,12 @@ function ProductDetailInner() {
               <div className="mt-6 rounded-[8px] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={randomImage(`pdp-detail-${product.id}`, 800, 480)}
+                  src={product.pdpImage || randomImage(`pdp-detail-${product.id}`, 800, 480)}
                   alt=""
-                  className="w-full h-[160px] object-cover"
+                  className="w-full object-cover"
                 />
               </div>
             </div>
-            <button
-              type="button"
-              onClick={() => {
-                setTab("reviews");
-                router.replace(`/products/${product.id}?tab=reviews`);
-              }}
-              className="w-full px-4 pb-5 text-right text-[13px] text-kurly-sub"
-            >
-              후기 {reviewCount.toLocaleString()}건 &gt;
-            </button>
           </section>
         ) : (
           <section>

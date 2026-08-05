@@ -4,15 +4,16 @@
 
 1. [Supabase Dashboard](https://supabase.com/dashboard/project/defeeiwpbziodzrbilnj) 접속
 2. **SQL Editor** → New query
-3. 아래 파일 전체를 복사해서 실행
-
-`supabase/schema.sql`
+3. `supabase/schema.sql` 전체를 복사해서 실행 (상품 16개 + 후기 시드 갱신됨)
 
 포함 내용:
 - `profiles` / `products` / `reviews` / `cart_items` / `orders` / `order_items`
 - RLS 정책
-- 더미 상품 8개 + 후기 시드 99개
+- 더미 상품 16개 + 후기 시드
 - 회원가입 시 `profiles` 자동 생성 트리거
+
+> 이미 예전에 schema를 실행했다면, 다시 실행해도 truncate 후 시드가 갱신됩니다.
+> (기존 장바구니/주문/작성 후기는 함께 초기화됩니다)
 
 ## 2. Auth 설정 (시연용 필수)
 

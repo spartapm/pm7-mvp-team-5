@@ -1,12 +1,12 @@
 "use client";
 
-import { getAccount } from "@/lib/data";
+import { getAccount, maskNickname } from "@/lib/data";
 import type { Review } from "@/lib/types";
-import { IconTruck } from "./Icons";
 import { SituationTagBadges } from "./SituationTagBadges";
 
 export function ReviewCard({ review }: { review: Review }) {
   const account = getAccount(review.userId);
+  const displayName = maskNickname(account.nickname);
 
   return (
     <article className="px-4 py-5 border-b-8 border-[#F5F5F5] animate-fade-in-up last:border-b-0">
@@ -17,7 +17,7 @@ export function ReviewCard({ review }: { review: Review }) {
           </span>
         )}
         <span className="text-[14px] font-semibold text-kurly-ink">
-          {account.nickname}
+          {displayName}
         </span>
       </div>
 
@@ -45,9 +45,22 @@ export function ReviewCard({ review }: { review: Review }) {
         {review.content}
       </p>
 
-      <div className="mt-3 flex items-center gap-1.5 text-[12px] text-kurly-muted">
-        <IconTruck className="w-4 h-4 text-[#FF8A3D]" />
-        <span>첫 구매니까, 하나만 사도 무료배송</span>
+      <div className="mt-3">
+        <button
+          type="button"
+          className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white"
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden>
+            <path
+              d="M8 11v9M4 12.5V20a1 1 0 0 0 1 1h6.2a3 3 0 0 0 2.7-1.7l2.4-5.1a1.5 1.5 0 0 0-1.4-2.2H12V5.5A2.5 2.5 0 0 0 9.5 3h-.2a1.3 1.3 0 0 0-1.25 1l-1.4 6.5A2 2 0 0 1 4.7 12H4"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+          도움돼요 {review.helpful > 0 ? review.helpful : ""}
+        </button>
       </div>
     </article>
   );

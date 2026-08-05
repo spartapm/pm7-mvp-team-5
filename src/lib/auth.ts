@@ -38,6 +38,12 @@ function writeLocalUsers(users: LocalUser[]) {
   localStorage.setItem(LOCAL_USERS_KEY, JSON.stringify(users));
 }
 
+export function isLocalEmailTaken(email: string): boolean {
+  const normalized = email.trim().toLowerCase();
+  if (!normalized) return false;
+  return readLocalUsers().some((u) => u.email.toLowerCase() === normalized);
+}
+
 export function readSession(): AuthSession | null {
   if (typeof window === "undefined") return null;
   try {

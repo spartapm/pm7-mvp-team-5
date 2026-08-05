@@ -77,11 +77,16 @@ export function ReviewForm({
     }
 
     if (mode === "create") {
-      showToast("후기가 정상적으로 등록되었습니다.");
+      // 5-1 복귀 후 작성한 후기 탭 + 완료 토스트
       router.replace("/reviews?tab=written");
+      window.setTimeout(() => {
+        showToast("후기가 정상적으로 등록되었습니다.");
+      }, 80);
     } else {
-      showToast("후기가 정상적으로 수정되었습니다.");
       router.replace("/reviews?tab=written");
+      window.setTimeout(() => {
+        showToast("후기가 정상적으로 수정되었습니다.");
+      }, 80);
     }
   };
 

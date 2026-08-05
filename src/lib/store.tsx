@@ -231,7 +231,6 @@ export function AppProvider({ children }: { children: ReactNode }) {
       const online = await hasSupabaseSession();
       if (!online) {
         setReviews((prev) => claimDemoWrittenReviews(prev, next.id));
-        showToast("로컬 로그인 상태예요. Supabase 세션이 있으면 DB에 저장됩니다.");
         return;
       }
       try {
@@ -534,7 +533,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const cartCount = totalQty(cartItems);
   const isLoggedIn = !!user;
-  const displayCartCount = isLoggedIn ? cartCount : 0;
+  // 비로그인(게스트)도 장바구니 담기 시 헤더 숫자 표기
+  const displayCartCount = cartCount;
 
   const value = useMemo(
     () => ({
