@@ -45,7 +45,7 @@ export function ReviewCard({ review }: { review: Review }) {
         {review.content}
       </p>
 
-      <div className="mt-3">
+      <div className="mt-3 flex justify-end">
         <button
           type="button"
           className="inline-flex items-center gap-1.5 h-8 px-3 rounded-full border border-kurly-line-strong text-[12px] text-kurly-sub bg-white"

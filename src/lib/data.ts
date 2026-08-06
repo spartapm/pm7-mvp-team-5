@@ -32,6 +32,13 @@ export const assets = (seed as { assets?: Record<string, string> }).assets ?? {
   "03_headericon_2": "/assets/03_headericon_2.png",
 };
 
+/** 다크 헤더(#5F0000)용 흰 로고/아이콘 */
+export const headerAssets = {
+  logo: "/assets/01_kurlylogo-white.png",
+  location: "/assets/03_headericon_1-white.png",
+  cart: "/assets/03_headericon_2-white.png",
+};
+
 export const accounts: Record<string, Account> = seed.accounts as Record<
   string,
   Account

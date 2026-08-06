@@ -105,14 +105,14 @@ export default function MyPage() {
           </button>
         </section>
 
-        <div className="px-4 mt-10 mb-4 flex justify-end">
+        <div className="px-4 mt-10 mb-4 flex justify-start">
           <button
             type="button"
             onClick={async () => {
               await logout();
               router.replace("/login");
             }}
-            className="text-[14px] text-kurly-sub underline underline-offset-2"
+            className="text-[14px] text-kurly-sub"
           >
             로그아웃
           </button>

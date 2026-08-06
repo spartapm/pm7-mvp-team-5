@@ -3,7 +3,7 @@
 import { BottomNav } from "@/components/BottomNav";
 import { MobileShell } from "@/components/MobileShell";
 import { ProductScrollCard } from "@/components/ProductCard";
-import { assets, products } from "@/lib/data";
+import { assets, headerAssets, products } from "@/lib/data";
 import { COMING_SOON_MESSAGE } from "@/lib/placeholders";
 import { useApp } from "@/lib/store";
 import Link from "next/link";
@@ -25,31 +25,47 @@ export default function HomePage() {
 
   return (
     <MobileShell>
+      {/* 피드백 to-be: 헤더 #5F0000 / 텍스트·아이콘 #FFFFFF */}
       <header className="sticky top-0 z-40 bg-[#5F0000]">
         <div className="h-[52px] px-3.5 flex items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="Kurly 홈">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={assets["01_kurlylogo"]}
+              src={headerAssets.logo}
               alt="Kurly"
-              className="h-[28px] w-auto object-contain brightness-0 invert"
+              className="h-[26px] w-auto object-contain"
             />
           </Link>
-          <Link href="/cart" className="relative p-1.5 text-white" aria-label="장바구니">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={assets["03_headericon_2"]}
-              alt=""
-              className="w-[24px] h-[24px] object-contain brightness-0 invert"
-            />
-            {displayCartCount > 0 && (
-              <span className="absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-kurly-cart text-white text-[10px] font-bold leading-4 text-center">
-                {displayCartCount > 99 ? "99+" : displayCartCount}
-              </span>
-            )}
-          </Link>
+          <div className="flex items-center gap-0.5">
+            <button
+              type="button"
+              aria-label="배송지"
+              className="p-1.5"
+              onClick={soon}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={headerAssets.location}
+                alt=""
+                className="w-[22px] h-[22px] object-contain"
+              />
+            </button>
+            <Link href="/cart" className="relative p-1.5" aria-label="장바구니">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={headerAssets.cart}
+                alt=""
+                className="w-[22px] h-[22px] object-contain"
+              />
+              {displayCartCount > 0 && (
+                <span className="absolute top-0 right-0 min-w-[16px] h-4 px-1 rounded-full bg-kurly-cart text-white text-[10px] font-bold leading-4 text-center">
+                  {displayCartCount > 99 ? "99+" : displayCartCount}
+                </span>
+              )}
+            </Link>
+          </div>
         </div>
-        <nav className="flex overflow-x-auto scrollbar-hide px-2 border-b border-white/10">
+        <nav className="flex overflow-x-auto scrollbar-hide px-2">
           {LNB.map((tab) => {
             const active = tab === "추천";
             return (
@@ -59,8 +75,8 @@ export default function HomePage() {
                 onClick={active ? undefined : soon}
                 className={`flex-shrink-0 px-3 h-10 text-[14px] whitespace-nowrap ${
                   active
-                    ? "text-[#FF5C5C] font-bold border-b-2 border-[#FF5C5C]"
-                    : "text-white/85"
+                    ? "text-white font-bold border-b-2 border-white"
+                    : "text-white/70"
                 }`}
               >
                 {tab}
@@ -96,7 +112,7 @@ export default function HomePage() {
               <img
                 src={item.icon}
                 alt=""
-                className="w-[44px] h-[44px] rounded-full object-cover bg-[#F5F5F5]"
+                className="w-[44px] h-[44px] rounded-[10px] object-cover bg-[#F5F5F5]"
               />
               <span className="text-[10px] text-kurly-sub text-center leading-tight tracking-tight">
                 {item.label}
