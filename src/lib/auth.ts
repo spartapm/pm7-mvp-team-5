@@ -1,5 +1,11 @@
 import { getSupabase } from "./supabase";
-import { isValidEmail, isValidPassword, PASSWORD_ERROR } from "./validation";
+import {
+  isValidEmail,
+  isValidName,
+  isValidPassword,
+  NAME_ERROR,
+  PASSWORD_ERROR,
+} from "./validation";
 
 const LOCAL_USERS_KEY = "kurly-local-users-v1";
 const SESSION_KEY = "kurly-auth-session-v1";
@@ -173,7 +179,10 @@ export function validateSignup(input: SignupInput): SignupValidation {
     passwordConfirmError = "비밀번호가 일치하지 않습니다. 다시 확인해주세요";
   }
 
-  const nameError = null;
+  let nameError: string | null = null;
+  if (name && !isValidName(name)) {
+    nameError = NAME_ERROR;
+  }
 
   const canSubmit =
     !!email &&
@@ -184,8 +193,10 @@ export function validateSignup(input: SignupInput): SignupValidation {
     !emailError &&
     !passwordError &&
     !passwordConfirmError &&
+    !nameError &&
     isValidEmail(email) &&
-    isValidPassword(input.password);
+    isValidPassword(input.password) &&
+    isValidName(name);
 
   return {
     emailError,

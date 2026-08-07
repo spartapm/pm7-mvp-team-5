@@ -15,6 +15,7 @@ type Props = {
   mode: Mode;
   product: Product;
   reviewId?: string;
+  writableId?: string;
   initialContent?: string;
   initialTags?: SituationTags;
 };
@@ -23,6 +24,7 @@ export function ReviewForm({
   mode,
   product,
   reviewId,
+  writableId,
   initialContent = "",
   initialTags = EMPTY_TAGS,
 }: Props) {
@@ -62,7 +64,12 @@ export function ReviewForm({
 
     const result =
       mode === "create"
-        ? await createReview({ productId: product.id, content, tags })
+        ? await createReview({
+            productId: product.id,
+            content,
+            tags,
+            writableId,
+          })
         : await updateReview({ reviewId: reviewId!, content, tags });
 
     if (!result.ok) {
@@ -77,8 +84,7 @@ export function ReviewForm({
     }
 
     if (mode === "create") {
-      // 5-1 복귀 후 작성한 후기 탭 + 완료 토스트
-      router.replace("/reviews?tab=written");
+      router.replace("/reviews?tab=writable");
       window.setTimeout(() => {
         showToast("후기가 정상적으로 등록되었습니다.");
       }, 80);

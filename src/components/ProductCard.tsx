@@ -82,13 +82,12 @@ export function ProductScrollCard({ product }: { product: Product }) {
         </p>
       )}
       <p className="mt-1.5 flex items-center gap-1 text-[12px] text-kurly-muted">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M7 3h10a2 2 0 0 1 2 2v16l-7-3-7 3V5a2 2 0 0 1 2-2Z"
-            stroke="currentColor"
-            strokeWidth="1.6"
-          />
-        </svg>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/assets/06_mypageicon4-gray.png"
+          alt=""
+          className="w-3.5 h-3.5 object-contain opacity-80"
+        />
         {formatReviewCount(product.reviewCount)}
       </p>
     </Link>

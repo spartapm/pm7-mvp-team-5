@@ -16,6 +16,15 @@ export function isValidPassword(password: string): boolean {
   return [hasLetter, hasNumber, hasSpecial].filter(Boolean).length >= 2;
 }
 
-/** 기능명세서/와이어프레임 #11-1 문구 */
+/** 기능명세서/와이어프레임 비밀번호 유효성 문구 */
 export const PASSWORD_ERROR =
-  "영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합";
+  "10자 이상, 영문/숫자/특수문자(공백 제외)만 허용하며, 2개 이상 조합";
+
+/** 이름: 숫자·특수문자 제외 (한글/영문/공백) */
+export function isValidName(name: string): boolean {
+  const trimmed = name.trim();
+  if (!trimmed) return false;
+  return /^[A-Za-z가-힣ㄱ-ㅎㅏ-ㅣ\s]+$/.test(trimmed);
+}
+
+export const NAME_ERROR = "이름은 숫자와 특수문자를 제외하고 입력해주세요";

@@ -199,11 +199,6 @@
       "id": "U1040",
       "nickname": "성**",
       "grade": "VIP"
-    },
-    "MASTER01": {
-      "id": "MASTER01",
-      "nickname": "오컬리",
-      "grade": "VVIP"
     }
   },
   "products": [
@@ -214,8 +209,7 @@
       "price": 9980,
       "salePrice": 4980,
       "unit": "450g",
-      "reviewCount": 13,
-      "writableForMaster": true,
+      "reviewCount": 12,
       "image": "/assets/product-5010898.jpg",
       "pdpImage": "/assets/pdp-5010898.jpg"
     },
@@ -226,8 +220,7 @@
       "price": 15900,
       "salePrice": 9520,
       "unit": "678g",
-      "reviewCount": 13,
-      "writableForMaster": true,
+      "reviewCount": 12,
       "image": "/assets/product-1001207466.jpg",
       "pdpImage": "/assets/pdp-1001207466.jpg"
     },
@@ -238,8 +231,7 @@
       "price": 24750,
       "salePrice": 17900,
       "unit": "250g",
-      "reviewCount": 13,
-      "writableForMaster": true,
+      "reviewCount": 12,
       "image": "/assets/product-5047857.jpg",
       "pdpImage": "/assets/pdp-5047857.jpg"
     },
@@ -251,7 +243,6 @@
       "salePrice": 4480,
       "unit": "60g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1000480296.jpg",
       "pdpImage": "/assets/pdp-1000480296.jpg"
     },
@@ -263,7 +254,6 @@
       "salePrice": 3780,
       "unit": "400g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5097217.jpg",
       "pdpImage": "/assets/pdp-5097217.jpg"
     },
@@ -275,7 +265,6 @@
       "salePrice": 5100,
       "unit": "옵션별 상이",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1001391829.jpg",
       "pdpImage": "/assets/pdp-1001391829.jpg"
     },
@@ -287,7 +276,6 @@
       "salePrice": 2780,
       "unit": "900ml",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5063110.jpg",
       "pdpImage": "/assets/pdp-5063110.jpg"
     },
@@ -299,7 +287,6 @@
       "salePrice": 5500,
       "unit": "옵션별 상이",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5135831.jpg",
       "pdpImage": "/assets/pdp-5135831.jpg"
     },
@@ -311,7 +298,6 @@
       "salePrice": 14500,
       "unit": "200g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5006246.jpg",
       "pdpImage": "/assets/pdp-5006246.jpg"
     },
@@ -323,7 +309,6 @@
       "salePrice": 15900,
       "unit": "1.2kg내외",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5007236.jpg",
       "pdpImage": "/assets/pdp-5007236.jpg"
     },
@@ -335,7 +320,6 @@
       "salePrice": 9140,
       "unit": "520g(10구)",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1001365220.jpg",
       "pdpImage": "/assets/pdp-1001365220.jpg"
     },
@@ -347,7 +331,6 @@
       "salePrice": 2990,
       "unit": "1kg 이상",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5031395.jpg",
       "pdpImage": "/assets/pdp-5031395.jpg"
     },
@@ -359,7 +342,6 @@
       "salePrice": 2990,
       "unit": "500g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1001549122.jpg",
       "pdpImage": "/assets/pdp-1001549122.jpg"
     },
@@ -371,7 +353,6 @@
       "salePrice": 15400,
       "unit": "460g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-5025646.jpg",
       "pdpImage": "/assets/pdp-5025646.jpg"
     },
@@ -383,7 +364,6 @@
       "salePrice": 4491,
       "unit": "180g",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1000217187.jpg",
       "pdpImage": "/assets/pdp-1000217187.jpg"
     },
@@ -395,7 +375,6 @@
       "salePrice": 7800,
       "unit": "옵션별 상이",
       "reviewCount": 12,
-      "writableForMaster": false,
       "image": "/assets/product-1000831954.jpg",
       "pdpImage": "/assets/pdp-1000831954.jpg"
     }
@@ -2703,80 +2682,6 @@
       "qaNote": "태그 3개 선택된 일반 리뷰 - #12,#13 수정/프리필 시나리오 시작점"
     },
     {
-      "id": "R5010898-MASTER01",
-      "productId": "5010898",
-      "productName": "[2개 구매 시 50%할인][고메] 크리스피 너겟",
-      "userId": "MASTER01",
-      "rating": 5,
-      "createdAt": "2026-08-04 10:00",
-      "content": "에어프라이어에 구웠더니 겉은 바삭하고 속은 촉촉해서 온 가족이 좋아했어요. 짭짤한 맛이 딱 좋아서 아이 간식으로도 자주 만들어요.",
-      "charCount": 72,
-      "situationTags": {
-        "headcount": "2~3인",
-        "purpose": "일상",
-        "companion": "아이와",
-        "taste": [
-          "짭짤해요",
-          "담백해요"
-        ]
-      },
-      "orderedTags": [],
-      "tagCount": 5,
-      "showBadge": true,
-      "hasPhoto": false,
-      "helpful": 0,
-      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
-    },
-    {
-      "id": "R1001207466-MASTER01",
-      "productId": "1001207466",
-      "productName": "[차려낸] 햄 가득 송탄식 부대찌개",
-      "userId": "MASTER01",
-      "rating": 5,
-      "createdAt": "2026-08-04 10:05",
-      "content": "재료 손질이 잘 되어 있어서 끓이기만 하면 되니 정말 편했고, 햄과 소시지가 푸짐해서 국물 맛도 진하고 짭짤했어요. 친구들과 술안주로 먹기 딱 좋았습니다.",
-      "charCount": 86,
-      "situationTags": {
-        "headcount": "2~3인",
-        "purpose": "술안주",
-        "companion": "친구와",
-        "taste": [
-          "짭짤해요",
-          "매콤해요"
-        ]
-      },
-      "orderedTags": [],
-      "tagCount": 5,
-      "showBadge": true,
-      "hasPhoto": false,
-      "helpful": 0,
-      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
-    },
-    {
-      "id": "R5047857-MASTER01",
-      "productId": "5047857",
-      "productName": "[델리치오] 호주산 소고기 목초육 안심 스테이크 250g (냉장)",
-      "userId": "MASTER01",
-      "rating": 5,
-      "createdAt": "2026-08-04 10:10",
-      "content": "손질이 깔끔하게 되어 있어서 굽기만 해도 레스토랑에서 먹는 듯한 맛이 났어요. 지방이 적당히 있어 담백하면서도 부드러워서 부모님 모시고 먹기 좋았습니다.",
-      "charCount": 85,
-      "situationTags": {
-        "headcount": "2~3인",
-        "purpose": "일상",
-        "companion": "부모님과",
-        "taste": [
-          "담백해요"
-        ]
-      },
-      "orderedTags": [],
-      "tagCount": 4,
-      "showBadge": true,
-      "hasPhoto": false,
-      "helpful": 0,
-      "qaNote": "마스터 계정(MASTER01) 리뷰 작성 페이지 진입/열람 테스트용"
-    },
-    {
       "id": "R5006246-001",
       "productId": "5006246",
       "productName": "[김소영 아티장의 안단테] 벨레트왈 투르 드 파리 브리",
@@ -5070,7 +4975,7 @@
     }
   ],
   "assets": {
-    "01_kurlylogo": "/assets/01_kurlylogo.jpg",
+    "01_kurlylogo": "/assets/01_kurlylogo.png",
     "02_carousel_5": "/assets/02_carousel_5.png",
     "03_menuicon_1": "/assets/03_menuicon_1.png",
     "03_menuicon_2": "/assets/03_menuicon_2.png",
@@ -5079,6 +4984,11 @@
     "03_menuicon_5": "/assets/03_menuicon_5.png",
     "03_menuicon_6": "/assets/03_menuicon_6.png",
     "03_headericon_1": "/assets/03_headericon_1.png",
-    "03_headericon_2": "/assets/03_headericon_2.png"
+    "03_headericon_2": "/assets/03_headericon_2.png",
+    "06_mypagebanner1": "/assets/06_mypagebanner1.png",
+    "06_mypageicon1": "/assets/06_mypageicon1.jpg",
+    "06_mypageicon2": "/assets/06_mypageicon2.jpg",
+    "06_mypageicon3": "/assets/06_mypageicon3.jpg",
+    "06_mypageicon4": "/assets/06_mypageicon4.jpg"
   }
 }

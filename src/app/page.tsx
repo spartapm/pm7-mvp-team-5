@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import { BottomNav } from "@/components/BottomNav";
 import { MobileShell } from "@/components/MobileShell";
 import { ProductScrollCard } from "@/components/ProductCard";
@@ -22,18 +23,27 @@ const shortcuts = [
 export default function HomePage() {
   const { displayCartCount, showToast } = useApp();
   const soon = () => showToast(COMING_SOON_MESSAGE);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  const scrollByCard = (dir: -1 | 1) => {
+    const el = scrollerRef.current;
+    if (!el) return;
+    const card = el.querySelector<HTMLElement>("[data-product-card]");
+    const step = (card?.offsetWidth ?? 148) + 12;
+    el.scrollBy({ left: dir * step, behavior: "smooth" });
+  };
 
   return (
     <MobileShell>
-      {/* 피드백 to-be: 헤더 #5F0000 / 텍스트·아이콘 #FFFFFF */}
-      <header className="sticky top-0 z-40 bg-[#5F0000]">
+      {/* 와이어/피드백: Kurly 퍼플 헤더 + 흰 로고/아이콘 */}
+      <header className="sticky top-0 z-40 bg-[#5F0080]">
         <div className="h-[52px] px-3.5 flex items-center justify-between">
           <Link href="/" className="flex items-center" aria-label="Kurly 홈">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={headerAssets.logo}
               alt="Kurly"
-              className="h-[26px] w-auto object-contain"
+              className="h-[32px] w-auto object-contain"
             />
           </Link>
           <div className="flex items-center gap-0.5">
@@ -65,7 +75,7 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        <nav className="flex overflow-x-auto scrollbar-hide px-2">
+        <nav className="flex overflow-x-auto scrollbar-hide px-2 bg-[#5F0080]">
           {LNB.map((tab) => {
             const active = tab === "추천";
             return (
@@ -90,7 +100,8 @@ export default function HomePage() {
         <button
           type="button"
           onClick={soon}
-          className="block w-full aspect-[390/180] overflow-hidden relative"
+          className="block w-full overflow-hidden relative"
+          style={{ aspectRatio: "390 / 290" }}
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -121,7 +132,7 @@ export default function HomePage() {
           ))}
         </div>
 
-        <section className="pb-4">
+        <section className="pb-4 relative">
           <div className="px-4 mb-3 flex items-end justify-between gap-2">
             <div>
               <h2 className="text-[17px] font-bold text-kurly-ink tracking-tight">
@@ -139,10 +150,34 @@ export default function HomePage() {
               전체보기 &gt;
             </button>
           </div>
-          <div className="flex gap-3 overflow-x-auto scrollbar-hide px-4 pb-1">
-            {products.map((p) => (
-              <ProductScrollCard key={p.id} product={p} />
-            ))}
+
+          <div className="relative">
+            <button
+              type="button"
+              aria-label="이전 상품"
+              onClick={() => scrollByCard(-1)}
+              className="absolute left-1 top-[70px] z-10 w-8 h-8 rounded-full bg-white/95 border border-kurly-line-strong shadow-sm flex items-center justify-center text-kurly-ink"
+            >
+              ‹
+            </button>
+            <button
+              type="button"
+              aria-label="다음 상품"
+              onClick={() => scrollByCard(1)}
+              className="absolute right-1 top-[70px] z-10 w-8 h-8 rounded-full bg-white/95 border border-kurly-line-strong shadow-sm flex items-center justify-center text-kurly-ink"
+            >
+              ›
+            </button>
+            <div
+              ref={scrollerRef}
+              className="flex gap-3 overflow-x-auto scrollbar-hide px-4 pb-1"
+            >
+              {products.map((p) => (
+                <div key={p.id} data-product-card>
+                  <ProductScrollCard product={p} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </main>

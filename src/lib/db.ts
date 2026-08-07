@@ -1,7 +1,7 @@
 import { getSupabase } from "./supabase";
-import { buildOrderedTags, countTags, EMPTY_TAGS } from "./tags";
+import { buildOrderedTags, countTags } from "./tags";
 import type { CartItem, Review, SituationTags, WritableItem } from "./types";
-import { getProduct, products } from "./data";
+import { getProduct } from "./data";
 
 export type DbReviewRow = {
   id: string;
@@ -33,6 +33,7 @@ function mapReview(row: DbReviewRow, myId?: string | null): Review {
     productId: row.product_id,
     productName: product?.name ?? row.product_id,
     userId: row.user_id ?? `seed:${row.author_label}`,
+    authorLabel: row.author_label,
     rating: row.rating,
     createdAt: created,
     content: row.content,
@@ -47,14 +48,6 @@ function mapReview(row: DbReviewRow, myId?: string | null): Review {
     qaNote: row.qa_note,
     isMine: !!myId && row.user_id === myId,
   };
-}
-
-function makeDeadline(offsetDays: number) {
-  const d = new Date();
-  d.setDate(d.getDate() + offsetDays);
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  return `${mm}.${dd}까지 작성 가능`;
 }
 
 export async function fetchAllReviews(): Promise<Review[]> {
@@ -128,27 +121,35 @@ export async function fetchWritable(userId: string): Promise<WritableItem[]> {
   const sb = getSupabase();
   if (!sb) return [];
 
-  const [{ data: items, error: e1 }, { data: myReviews, error: e2 }] =
-    await Promise.all([
-      sb
-        .from("order_items")
-        .select("product_id, orders!inner(user_id, created_at)")
-        .eq("orders.user_id", userId),
-      sb.from("reviews").select("product_id").eq("user_id", userId),
-    ]);
-  if (e1) throw e1;
-  if (e2) throw e2;
+  const { data: items, error } = await sb
+    .from("order_items")
+    .select("id, product_id, quantity, orders!inner(user_id, created_at)")
+    .eq("orders.user_id", userId)
+    .order("created_at", { ascending: false, foreignTable: "orders" });
+  if (error) throw error;
 
-  const reviewed = new Set((myReviews ?? []).map((r) => r.product_id as string));
-  const seen = new Set<string>();
+  // 작성한 후기 여부와 무관하게, 주문(주문일시) 기준으로 카드 1개씩
   const writable: WritableItem[] = [];
   for (const row of items ?? []) {
-    const pid = row.product_id as string;
-    if (reviewed.has(pid) || seen.has(pid)) continue;
-    seen.add(pid);
-    writable.push({ productId: pid, deadline: makeDeadline(14) });
+    const order = row.orders as { created_at?: string } | null;
+    const created = order?.created_at
+      ? order.created_at.replace("T", " ").slice(0, 19)
+      : formatNow();
+    writable.push({
+      id: String(row.id),
+      productId: row.product_id as string,
+      orderedAt: created,
+    });
   }
+  // 최신 주문순
+  writable.sort((a, b) => (a.orderedAt < b.orderedAt ? 1 : -1));
   return writable;
+}
+
+function formatNow() {
+  const d = new Date();
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
 export async function createOrder(input: {
@@ -213,11 +214,14 @@ export async function createReviewDb(input: {
   }
 
   const id = `R-USER-${input.productId}-${Date.now()}`;
+  const maskedName = input.userName.trim()
+    ? `${input.userName.trim()[0]}**`
+    : "회**";
   const row = {
     id,
     product_id: input.productId,
     user_id: input.userId,
-    author_label: input.userName,
+    author_label: maskedName,
     author_grade: null as string | null,
     rating: 5,
     content: input.content.trim(),
@@ -261,93 +265,14 @@ export async function updateReviewDb(input: {
   if (error) throw error;
 }
 
-/** 첫 로그인 시연용: 작성가능 3개 + 수정용 후기 3개 시드 */
+/** 프로필만 보장 — 더미 주문/후기 자동 시드 하지 않음 */
 export async function ensureUserBootstrap(userId: string, userName: string) {
   const sb = getSupabase();
   if (!sb) return;
-
-  const { count: orderCount } = await sb
-    .from("orders")
-    .select("*", { count: "exact", head: true })
-    .eq("user_id", userId);
-
-  const { count: myReviewCount } = await sb
-    .from("reviews")
-    .select("*", { count: "exact", head: true })
-    .eq("user_id", userId);
-
-  const writableProducts = products.filter((p) => p.writableForMaster).slice(0, 3);
-  const editProducts = products.filter((p) => !p.writableForMaster).slice(0, 3);
-
-  if (!orderCount) {
-    const { data: order, error } = await sb
-      .from("orders")
-      .insert({
-        user_id: userId,
-        total_sale: writableProducts.reduce((s, p) => s + p.salePrice, 0),
-        total_original: writableProducts.reduce((s, p) => s + p.price, 0),
-        status: "paid",
-      })
-      .select("id")
-      .single();
-    if (!error && order) {
-      await sb.from("order_items").insert(
-        writableProducts.map((p) => ({
-          order_id: order.id,
-          product_id: p.id,
-          quantity: 1,
-          unit_sale_price: p.salePrice,
-          unit_original_price: p.price,
-        }))
-      );
-    }
-  }
-
-  if (!myReviewCount) {
-    const demos = [
-      {
-        tags: {
-          headcount: "2~3인",
-          purpose: "일상",
-          companion: "혼자",
-          taste: ["담백해요"],
-        } as SituationTags,
-        content:
-          "차돌박이가 두툼하고 육즙이 가득해서 구워 먹으니 정말 맛있어요. 재구매 의사 있습니다.",
-      },
-      {
-        tags: {
-          headcount: "1~2인",
-          purpose: "술안주",
-          companion: "연인과",
-          taste: ["매콤해요", "짭짤해요"],
-        } as SituationTags,
-        content:
-          "간이 세지 않고 담백해서 밥반찬으로 좋아요. 에어프라이어에 데워 먹으니 더 맛있었습니다.",
-      },
-      {
-        tags: { ...EMPTY_TAGS },
-        content:
-          "전체적으로 무난한 맛이었어요. 특별한 건 없지만 간편식으로 쓰기 좋습니다.",
-      },
-    ];
-
-    const rows = editProducts.map((p, idx) => ({
-      id: `R-BOOT-${userId.slice(0, 8)}-${p.id}`,
-      product_id: p.id,
-      user_id: userId,
-      author_label: userName,
-      author_grade: null,
-      rating: 5,
-      content: demos[idx].content,
-      situation_tags: demos[idx].tags,
-      photos: [],
-      helpful: 0,
-      qa_note: "bootstrap-edit-demo",
-    }));
-
-    await sb.from("reviews").upsert(rows, { onConflict: "id" });
-  }
+  await sb.from("profiles").upsert(
+    { id: userId, name: userName },
+    { onConflict: "id" }
+  );
 }
 
 export async function mergeGuestCartToDb(

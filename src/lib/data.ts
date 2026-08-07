@@ -1,5 +1,5 @@
 import seed from "./seed-data.json";
-import { buildOrderedTags, EMPTY_TAGS } from "./tags";
+import { buildOrderedTags } from "./tags";
 import type {
   Account,
   Product,
@@ -9,18 +9,8 @@ import type {
   WritableItem,
 } from "./types";
 
-const REVIEW_PHOTOS = [
-  "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=400&q=80",
-  "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=400&q=80",
-];
-
-export const CURRENT_USER_ID = "MASTER01";
-
 export const assets = (seed as { assets?: Record<string, string> }).assets ?? {
-  "01_kurlylogo": "/assets/01_kurlylogo.jpg",
+  "01_kurlylogo": "/assets/01_kurlylogo.png",
   "02_carousel_5": "/assets/02_carousel_5.png",
   "03_menuicon_1": "/assets/03_menuicon_1.png",
   "03_menuicon_2": "/assets/03_menuicon_2.png",
@@ -30,9 +20,13 @@ export const assets = (seed as { assets?: Record<string, string> }).assets ?? {
   "03_menuicon_6": "/assets/03_menuicon_6.png",
   "03_headericon_1": "/assets/03_headericon_1.png",
   "03_headericon_2": "/assets/03_headericon_2.png",
+  "06_mypagebanner1": "/assets/06_mypagebanner1.png",
+  "06_mypageicon1": "/assets/06_mypageicon1.jpg",
+  "06_mypageicon2": "/assets/06_mypageicon2.jpg",
+  "06_mypageicon3": "/assets/06_mypageicon3.jpg",
+  "06_mypageicon4": "/assets/06_mypageicon4.jpg",
 };
 
-/** 다크 헤더(#5F0000)용 흰 로고/아이콘 */
 export const headerAssets = {
   logo: "/assets/01_kurlylogo-white.png",
   location: "/assets/03_headericon_1-white.png",
@@ -44,9 +38,7 @@ export const accounts: Record<string, Account> = seed.accounts as Record<
   Account
 >;
 
-export const products: Product[] = (
-  seed.products as Array<Product>
-).map((p) => ({
+export const products: Product[] = (seed.products as Array<Product>).map((p) => ({
   ...p,
   image: p.image || `/assets/product-${p.id}.jpg`,
   pdpImage: p.pdpImage || p.image || `/assets/pdp-${p.id}.jpg`,
@@ -66,7 +58,16 @@ function normalizeTags(raw: {
   };
 }
 
-const baseReviews: Review[] = (
+/** 상품 관련 후기 사진 — 해당 상품 이미지 기반 */
+function reviewPhotosFor(productId: string, count: number, salt: number): string[] {
+  const product = products.find((p) => p.id === productId);
+  const base = product?.image || product?.pdpImage;
+  if (!base || count <= 0) return [];
+  // 동일 상품 이미지를 반복하되 캐시 버스트로 구분
+  return Array.from({ length: count }, (_, i) => `${base}?v=review-${salt}-${i}`);
+}
+
+export const initialReviews: Review[] = (
   seed.reviews as Array<{
     id: string;
     productId: string;
@@ -82,9 +83,6 @@ const baseReviews: Review[] = (
       companion: string | null;
       taste: string[];
     };
-    orderedTags: string[];
-    tagCount: number;
-    showBadge: boolean;
     hasPhoto: boolean;
     helpful: number;
     qaNote?: string | null;
@@ -92,87 +90,22 @@ const baseReviews: Review[] = (
 ).map((r, i) => {
   const tags = normalizeTags(r.situationTags);
   const ordered = buildOrderedTags(tags);
+  const account = accounts[r.userId];
   const photoCount = r.hasPhoto ? 2 + (i % 3) : 0;
   return {
     ...r,
+    authorLabel: account?.nickname ?? maskNickname("회원"),
     situationTags: tags,
     orderedTags: ordered,
     tagCount: ordered.length,
     showBadge: ordered.length > 0,
-    photos: Array.from({ length: photoCount }, (_, pi) =>
-      REVIEW_PHOTOS[(i + pi) % REVIEW_PHOTOS.length]
-    ),
+    photos: reviewPhotosFor(r.productId, photoCount, i),
     isMine: false,
   };
 });
 
-export const DEMO_WRITTEN_MARKER = "DEMO_WRITTEN_SEED";
-
-function buildMasterSeedReviews(): Review[] {
-  const writtenProducts = products.filter((p) => !p.writableForMaster).slice(0, 3);
-  const configs = [
-    { withTags: true as const },
-    { withTags: true as const },
-    { withTags: false as const },
-  ];
-
-  return writtenProducts.map((product, idx) => {
-    const withTags = configs[idx].withTags;
-    const source = baseReviews.find(
-      (r) =>
-        r.productId === product.id &&
-        (withTags
-          ? r.qaNote?.includes("QA09") || r.tagCount === 3
-          : r.qaNote?.includes("QA01") || r.tagCount === 0)
-    );
-    const tags = withTags
-      ? source?.situationTags ?? {
-          headcount: "2~3인" as const,
-          purpose: "일상" as const,
-          companion: "혼자" as const,
-          taste: ["담백해요" as const],
-        }
-      : { ...EMPTY_TAGS };
-    const ordered = buildOrderedTags(tags);
-    const content =
-      source?.content ??
-      "차돌박이가 두툼하고 육즙이 가득해서 구워 먹으니 정말 맛있어요.";
-    return {
-      id: `R-MASTER-${product.id}`,
-      productId: product.id,
-      productName: product.name,
-      userId: CURRENT_USER_ID,
-      rating: 5,
-      createdAt: `2025-07-${10 + idx} 12:00`,
-      content,
-      charCount: content.length,
-      situationTags: tags,
-      orderedTags: ordered,
-      tagCount: ordered.length,
-      showBadge: ordered.length > 0,
-      hasPhoto: idx !== 2,
-      photos:
-        idx !== 2 ? [REVIEW_PHOTOS[idx], REVIEW_PHOTOS[idx + 1]] : [],
-      helpful: 12 + idx,
-      qaNote: withTags
-        ? `${DEMO_WRITTEN_MARKER} 태그 있음 - 수정 프리필`
-        : `${DEMO_WRITTEN_MARKER} 태그 없음 - 수정 시 미선택 상태`,
-      isMine: false,
-    } satisfies Review;
-  });
-}
-
-export const initialReviews: Review[] = [
-  ...baseReviews,
-  ...buildMasterSeedReviews(),
-];
-
-export const initialWritable: WritableItem[] = products
-  .filter((p) => p.writableForMaster)
-  .map((p, i) => ({
-    productId: p.id,
-    deadline: `08.${String(10 + i).padStart(2, "0")}까지 작성 가능`,
-  }));
+/** 신규 가입 시 빈 상태 — 주문 후에만 작성 가능 후기 추가 */
+export const initialWritable: WritableItem[] = [];
 
 export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id);
@@ -187,13 +120,18 @@ export function formatReviewCount(n: number): string {
   return String(n);
 }
 
-/** 회원이름 첫 글자 제외 ** 마스킹 (이미 마스킹된 닉네임은 그대로) */
+/** 회원이름 첫 글자 제외 ** 마스킹 */
 export function maskNickname(name: string): string {
   const trimmed = (name || "").trim();
   if (!trimmed) return "회**";
   if (trimmed.includes("*")) return trimmed;
   if (trimmed.length === 1) return `${trimmed}**`;
   return `${trimmed[0]}**`;
+}
+
+export function formatOrderedAt(d = new Date()): string {
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
 }
 
 export function getAccount(userId: string): Account {
@@ -204,4 +142,10 @@ export function getAccount(userId: string): Account {
       grade: null,
     }
   );
+}
+
+export function getReviewAuthorLabel(review: Review): string {
+  if (review.authorLabel) return maskNickname(review.authorLabel);
+  const account = getAccount(review.userId);
+  return maskNickname(account.nickname);
 }

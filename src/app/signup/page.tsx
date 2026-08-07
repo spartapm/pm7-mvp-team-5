@@ -141,13 +141,13 @@ function SignupInner() {
             />
           </Field>
 
-          <Field label="이름">
+          <Field label="이름" error={validation.nameError}>
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="이름을 입력해 주세요"
-              className={inputClass(false)}
+              className={inputClass(!!validation.nameError)}
               autoComplete="name"
             />
           </Field>

@@ -23,7 +23,6 @@ export type Product = {
   salePrice: number;
   unit: string;
   reviewCount: number;
-  writableForMaster: boolean;
   image: string;
   pdpImage: string;
 };
@@ -39,6 +38,7 @@ export type Review = {
   productId: string;
   productName: string;
   userId: string;
+  authorLabel?: string;
   rating: number;
   createdAt: string;
   content: string;
@@ -55,8 +55,11 @@ export type Review = {
 };
 
 export type WritableItem = {
+  /** 주문 라인 고유 키 (같은 상품 재주문 구분) */
+  id: string;
   productId: string;
-  deadline: string;
+  /** yyyy-MM-dd HH:mm:ss */
+  orderedAt: string;
 };
 
 export type CartItem = {

@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { BottomNav } from "@/components/BottomNav";
 import { Header } from "@/components/Header";
 import { MobileShell } from "@/components/MobileShell";
-import { COMING_SOON_MESSAGE, randomImage } from "@/lib/placeholders";
+import { assets } from "@/lib/data";
+import { COMING_SOON_MESSAGE } from "@/lib/placeholders";
 import { useApp } from "@/lib/store";
 
 export default function MyPage() {
@@ -46,19 +47,38 @@ export default function MyPage() {
         <button
           type="button"
           onClick={soon}
-          className="mx-4 h-[96px] w-[calc(100%-2rem)] rounded-[10px] overflow-hidden relative block bg-[#F3F3F3]"
+          className="mx-4 block w-[calc(100%-2rem)] rounded-[10px] overflow-hidden"
         >
-          <span className="absolute inset-0 flex items-center justify-center px-4 text-center text-[13px] text-kurly-muted">
-            혜택 · 적립금 영역 (비활성 · MVP 범위 아님)
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={assets["06_mypagebanner1"]}
+            alt=""
+            className="w-full h-auto object-cover"
+          />
         </button>
 
         <div className="grid grid-cols-4 gap-2 px-4 py-7">
           {[
-            { label: "주문내역", seed: "mypage-order", active: false },
-            { label: "쿠폰", seed: "mypage-coupon", active: false },
-            { label: "찜", seed: "mypage-wish", active: false },
-            { label: "후기", seed: "mypage-review", active: true },
+            {
+              label: "주문내역",
+              icon: assets["06_mypageicon1"],
+              active: false,
+            },
+            {
+              label: "쿠폰",
+              icon: assets["06_mypageicon2"],
+              active: false,
+            },
+            {
+              label: "찜",
+              icon: assets["06_mypageicon3"],
+              active: false,
+            },
+            {
+              label: "후기",
+              icon: assets["06_mypageicon4"],
+              active: true,
+            },
           ].map((item) =>
             item.active ? (
               <Link
@@ -66,8 +86,13 @@ export default function MyPage() {
                 href="/reviews"
                 className="flex flex-col items-center gap-2.5"
               >
-                <div className="relative w-[58px] h-[58px] rounded-full bg-kurly-purple flex items-center justify-center">
-                  <span className="text-white text-[13px] font-bold">후기</span>
+                <div className="w-[58px] h-[58px] rounded-full overflow-hidden bg-kurly-purple-soft flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.icon}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <span className="text-[13px] font-semibold text-kurly-purple">
                   {item.label}
@@ -80,12 +105,14 @@ export default function MyPage() {
                 onClick={soon}
                 className="flex flex-col items-center gap-2.5"
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={randomImage(item.seed, 120, 120)}
-                  alt=""
-                  className="w-[58px] h-[58px] rounded-full object-cover bg-[#EDEDED]"
-                />
+                <div className="w-[58px] h-[58px] rounded-full overflow-hidden bg-[#EDEDED]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={item.icon}
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <span className="text-[13px] text-kurly-sub">{item.label}</span>
               </button>
             )

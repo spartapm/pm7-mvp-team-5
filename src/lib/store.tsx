@@ -28,17 +28,18 @@ import {
   upsertCartItem,
 } from "./db";
 import {
-  CURRENT_USER_ID,
-  DEMO_WRITTEN_MARKER,
+  formatOrderedAt,
   getProduct,
   initialReviews,
   initialWritable,
+  maskNickname,
 } from "./data";
 import { getSupabase } from "./supabase";
 import { buildOrderedTags, countTags } from "./tags";
 import type { CartItem, Review, SituationTags, WritableItem } from "./types";
 
-const STORAGE_KEY = "kurly-situation-tag-mvp-v4";
+const STORAGE_KEY = "kurly-situation-tag-mvp-v5";
+const HELPFUL_KEY = "kurly-helpful-votes-v1";
 
 type Toast = {
   id: number;
@@ -56,6 +57,7 @@ type AppState = {
   hydrated: boolean;
   user: AuthUser | null;
   isLoggedIn: boolean;
+  helpfulVotes: Record<string, boolean>;
   setUser: (user: AuthUser | null) => Promise<void>;
   logout: () => Promise<void>;
   addToCart: (productId: string) => Promise<void>;
@@ -72,12 +74,14 @@ type AppState = {
     productId: string;
     content: string;
     tags: SituationTags;
+    writableId?: string;
   }) => Promise<{ ok: true } | { ok: false; error: string }>;
   updateReview: (input: {
     reviewId: string;
     content: string;
     tags: SituationTags;
   }) => Promise<{ ok: true } | { ok: false; error: string }>;
+  toggleHelpful: (reviewId: string) => void;
   getMyReviews: () => Review[];
   getProductReviews: (productId: string) => Review[];
   getWritable: () => WritableItem[];
@@ -95,37 +99,6 @@ function totalQty(items: CartItem[]) {
   return items.reduce((sum, i) => sum + i.quantity, 0);
 }
 
-function makeDeadline(offsetDays: number) {
-  const d = new Date();
-  d.setDate(d.getDate() + offsetDays);
-  const mm = String(d.getMonth() + 1).padStart(2, "0");
-  const dd = String(d.getDate()).padStart(2, "0");
-  return `${mm}.${dd}까지 작성 가능`;
-}
-
-function claimDemoWrittenReviews(list: Review[], userId: string): Review[] {
-  const alreadyHasMine = list.some(
-    (r) => r.userId === userId && r.qaNote?.includes(DEMO_WRITTEN_MARKER)
-  );
-  if (alreadyHasMine) {
-    return list.map((r) =>
-      r.userId === userId ? { ...r, isMine: true } : r
-    );
-  }
-  const hasAnyMine = list.some((r) => r.userId === userId);
-  if (hasAnyMine) {
-    return list.map((r) =>
-      r.userId === userId ? { ...r, isMine: true } : { ...r, isMine: false }
-    );
-  }
-  return list.map((r) => {
-    if (r.qaNote?.includes(DEMO_WRITTEN_MARKER) && r.userId === CURRENT_USER_ID) {
-      return { ...r, userId, isMine: true };
-    }
-    return { ...r, isMine: r.userId === userId };
-  });
-}
-
 async function hasSupabaseSession() {
   const sb = getSupabase();
   if (!sb) return false;
@@ -140,6 +113,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [hydrated, setHydrated] = useState(false);
   const [user, setUserState] = useState<AuthUser | null>(null);
+  const [helpfulVotes, setHelpfulVotes] = useState<Record<string, boolean>>({});
 
   const showToast = useCallback(
     (message: string, variant: Toast["variant"] = "default") => {
@@ -147,7 +121,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       setToasts((prev) => [...prev, { id, message, variant }]);
       window.setTimeout(() => {
         setToasts((prev) => prev.filter((t) => t.id !== id));
-      }, 4000);
+      }, 2000);
     },
     []
   );
@@ -176,8 +150,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
             guestCart = parsed.cartItems;
             setCartItems(parsed.cartItems);
           }
-          if (parsed.reviews?.length) setReviews(parsed.reviews);
-          if (parsed.writable) setWritable(parsed.writable);
+          // 후기/작성가능은 시드·DB 기준으로 — 로컬 더미 덮어쓰기 방지
+          if (parsed.writable?.length) setWritable(parsed.writable);
+        }
+        try {
+          const votes = localStorage.getItem(HELPFUL_KEY);
+          if (votes) setHelpfulVotes(JSON.parse(votes) as Record<string, boolean>);
+        } catch {
+          /* ignore */
         }
 
         const session = readSession();
@@ -195,10 +175,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
             }
             await refreshFromDb(session.user);
           } else {
-            setReviews((prev) => claimDemoWrittenReviews(prev, session.user.id));
+            // 로컬 로그인: 내 후기만 isMine 표시 (더미 이관 없음)
+            setReviews((prev) =>
+              prev.map((r) => ({ ...r, isMine: r.userId === session.user.id }))
+            );
           }
         } else {
-          // try load public reviews from supabase even when logged out
           try {
             const all = await fetchAllReviews();
             if (all.length) setReviews(all);
@@ -215,14 +197,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!hydrated) return;
-    // guest cart only persisted locally; logged-in cart lives in DB
     const payload: Persisted = {
       cartItems: user ? [] : cartItems,
-      reviews: user ? undefined : reviews,
-      writable: user ? undefined : writable,
+      writable: user ? writable : [],
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
-  }, [cartItems, reviews, writable, hydrated, user]);
+  }, [cartItems, writable, hydrated, user]);
+
+  useEffect(() => {
+    if (!hydrated) return;
+    localStorage.setItem(HELPFUL_KEY, JSON.stringify(helpfulVotes));
+  }, [helpfulVotes, hydrated]);
 
   const setUser = useCallback(
     async (next: AuthUser | null) => {
@@ -230,7 +215,10 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (!next) return;
       const online = await hasSupabaseSession();
       if (!online) {
-        setReviews((prev) => claimDemoWrittenReviews(prev, next.id));
+        setReviews((prev) =>
+          prev.map((r) => ({ ...r, isMine: r.userId === next.id }))
+        );
+        setWritable([]);
         return;
       }
       try {
@@ -380,22 +368,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
         setWritable(writables);
         setCartItems([]);
       } else {
-        // local fallback fake payment
+        const orderedAt = formatOrderedAt();
         setWritable((prev) => {
-          const existing = new Set(prev.map((w) => w.productId));
           const next = [...prev];
-          selected.forEach((item, idx) => {
-            if (existing.has(item.productId)) return;
-            const alreadyReviewed = reviews.some(
-              (r) => r.productId === item.productId && r.userId === user.id
-            );
-            if (alreadyReviewed) return;
+          // 작성한 후기 여부와 무관하게 추가. 주문 1건당 상품 카드 1개.
+          selected.forEach((item) => {
             next.push({
+              id: `local-${item.productId}-${Date.now()}-${Math.random()}`,
               productId: item.productId,
-              deadline: makeDeadline(14 + idx),
+              orderedAt,
             });
-            existing.add(item.productId);
           });
+          next.sort((a, b) => (a.orderedAt < b.orderedAt ? 1 : -1));
           return next;
         });
         setCartItems((prev) => prev.filter((i) => !i.selected));
@@ -405,13 +389,14 @@ export function AppProvider({ children }: { children: ReactNode }) {
       console.error(e);
       return { ok: false as const, error: "결제(주문) 처리에 실패했어요" };
     }
-  }, [cartItems, reviews, user]);
+  }, [cartItems, user]);
 
   const createReview = useCallback(
     async (input: {
       productId: string;
       content: string;
       tags: SituationTags;
+      writableId?: string;
     }) => {
       if (typeof navigator !== "undefined" && navigator.onLine === false) {
         return { ok: false as const, error: "NETWORK" };
@@ -423,18 +408,34 @@ export function AppProvider({ children }: { children: ReactNode }) {
       }
       if (!user) return { ok: false as const, error: "로그인이 필요해요" };
 
+      const removeWritable = () => {
+        setWritable((prev) => {
+          if (input.writableId) {
+            return prev.filter((w) => w.id !== input.writableId);
+          }
+          const idx = prev.findIndex((w) => w.productId === product.id);
+          if (idx < 0) return prev;
+          return [...prev.slice(0, idx), ...prev.slice(idx + 1)];
+        });
+      };
+
       try {
         if (await hasSupabaseSession()) {
-          const review = await createReviewDb({
-            userId: user.id,
-            userName: user.name,
-            productId: input.productId,
-            content: input.content,
-            tags: input.tags,
-          });
-          setReviews((prev) => [review, ...prev]);
-          setWritable((prev) => prev.filter((w) => w.productId !== product.id));
-          return { ok: true as const };
+          try {
+            const review = await createReviewDb({
+              userId: user.id,
+              userName: user.name,
+              productId: input.productId,
+              content: input.content,
+              tags: input.tags,
+            });
+            setReviews((prev) => [review, ...prev]);
+            removeWritable();
+            return { ok: true as const };
+          } catch (dbErr) {
+            console.error("createReviewDb failed, local fallback", dbErr);
+            // fall through to local so UX doesn't break
+          }
         }
 
         const ordered = buildOrderedTags(input.tags);
@@ -443,6 +444,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           productId: product.id,
           productName: product.name,
           userId: user.id,
+          authorLabel: maskNickname(user.name || "회원"),
           rating: 5,
           createdAt: new Date().toISOString().slice(0, 16).replace("T", " "),
           content: input.content.trim(),
@@ -457,7 +459,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
           isMine: true,
         };
         setReviews((prev) => [review, ...prev]);
-        setWritable((prev) => prev.filter((w) => w.productId !== product.id));
+        removeWritable();
         return { ok: true as const };
       } catch (e) {
         console.error(e);
@@ -479,14 +481,24 @@ export function AppProvider({ children }: { children: ReactNode }) {
       if (input.content.trim().length < 10) {
         return { ok: false as const, error: "후기를 10자 이상 작성해주세요" };
       }
+      const target = reviews.find((r) => r.id === input.reviewId);
+      if (!target) return { ok: false as const, error: "후기를 찾을 수 없어요" };
+      if (user && target.userId !== user.id && !target.isMine) {
+        return { ok: false as const, error: "본인 후기만 수정할 수 있어요" };
+      }
+
       try {
-        if (user && (await hasSupabaseSession())) {
-          await updateReviewDb({
-            userId: user.id,
-            reviewId: input.reviewId,
-            content: input.content,
-            tags: input.tags,
-          });
+        if (user && (await hasSupabaseSession()) && target.userId === user.id) {
+          try {
+            await updateReviewDb({
+              userId: user.id,
+              reviewId: input.reviewId,
+              content: input.content,
+              tags: input.tags,
+            });
+          } catch (dbErr) {
+            console.error("updateReviewDb failed, local update", dbErr);
+          }
         }
         const ordered = buildOrderedTags(input.tags);
         setReviews((prev) =>
@@ -510,12 +522,26 @@ export function AppProvider({ children }: { children: ReactNode }) {
         return { ok: false as const, error: "NETWORK" };
       }
     },
-    [user]
+    [reviews, user]
   );
+
+  const toggleHelpful = useCallback((reviewId: string) => {
+    setHelpfulVotes((prev) => {
+      const voted = !!prev[reviewId];
+      setReviews((list) =>
+        list.map((r) =>
+          r.id === reviewId
+            ? { ...r, helpful: Math.max(0, r.helpful + (voted ? -1 : 1)) }
+            : r
+        )
+      );
+      return { ...prev, [reviewId]: !voted };
+    });
+  }, []);
 
   const getMyReviews = useCallback(() => {
     if (!user) return [];
-    return reviews.filter((r) => r.userId === user.id);
+    return reviews.filter((r) => r.userId === user.id || r.isMine);
   }, [reviews, user]);
 
   const getProductReviews = useCallback(
@@ -524,12 +550,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
   );
 
   const getWritable = useCallback(() => {
-    if (!user) return writable;
-    const mine = new Set(
-      reviews.filter((r) => r.userId === user.id).map((r) => r.productId)
-    );
-    return writable.filter((w) => !mine.has(w.productId));
-  }, [writable, reviews, user]);
+    return [...writable].sort((a, b) => (a.orderedAt < b.orderedAt ? 1 : -1));
+  }, [writable]);
 
   const cartCount = totalQty(cartItems);
   const isLoggedIn = !!user;
@@ -547,6 +569,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       hydrated,
       user,
       isLoggedIn,
+      helpfulVotes,
       setUser,
       logout,
       addToCart,
@@ -559,6 +582,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       showToast,
       createReview,
       updateReview,
+      toggleHelpful,
       getMyReviews,
       getProductReviews,
       getWritable,
@@ -573,6 +597,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       hydrated,
       user,
       isLoggedIn,
+      helpfulVotes,
       setUser,
       logout,
       addToCart,
@@ -585,6 +610,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
       showToast,
       createReview,
       updateReview,
+      toggleHelpful,
       getMyReviews,
       getProductReviews,
       getWritable,

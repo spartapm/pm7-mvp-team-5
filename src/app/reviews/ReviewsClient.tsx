@@ -60,13 +60,7 @@ export default function ReviewsClient() {
       </div>
 
       <main className="pb-10 min-h-[70vh] bg-white">
-        {!hydrated ? (
-          <div className="p-4 space-y-3">
-            {[1, 2, 3].map((i) => (
-              <div key={i} className="skeleton h-[120px] rounded-[10px]" />
-            ))}
-          </div>
-        ) : tab === "writable" ? (
+        {tab === "writable" ? (
           <section className="p-4 space-y-3">
             <p className="text-[13px] text-kurly-muted mb-1">작성 가능 후기</p>
             {writable.length === 0 ? (
@@ -77,28 +71,30 @@ export default function ReviewsClient() {
                 if (!product) return null;
                 return (
                   <div
-                    key={item.productId}
+                    key={item.id}
                     className="rounded-[10px] border-[1.5px] border-kurly-purple bg-white p-3.5"
                   >
                     <div className="flex gap-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={product.image}
-                        alt=""
-                        className="w-[68px] h-[68px] rounded-[6px] object-cover bg-[#EDEDED] flex-shrink-0"
-                      />
+                      <Link href={`/products/${product.id}`} className="flex-shrink-0">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={product.image}
+                          alt=""
+                          className="w-[68px] h-[68px] rounded-[6px] object-cover bg-[#EDEDED]"
+                        />
+                      </Link>
                       <div className="min-w-0 flex-1 pt-0.5">
                         <p className="text-[14px] font-semibold text-kurly-ink line-clamp-2 leading-[1.35]">
                           {product.name}
                         </p>
                         <p className="text-[12px] text-kurly-muted mt-1.5">
-                          {item.deadline}
+                          주문일시 {item.orderedAt}
                         </p>
                       </div>
                     </div>
                     <div className="mt-3 flex justify-end">
                       <Link
-                        href={`/reviews/write/${product.id}`}
+                        href={`/reviews/write/${product.id}?wid=${encodeURIComponent(item.id)}`}
                         className="h-9 min-w-[88px] px-4 rounded-[6px] bg-kurly-purple text-white text-[13px] font-semibold inline-flex items-center justify-center"
                       >
                         후기 작성
@@ -123,12 +119,17 @@ export default function ReviewsClient() {
                     className="rounded-[10px] border-[1.5px] border-kurly-purple bg-white p-3.5"
                   >
                     <div className="flex gap-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={product?.image ?? ""}
-                        alt=""
-                        className="w-[68px] h-[68px] rounded-[6px] object-cover bg-[#EDEDED] flex-shrink-0"
-                      />
+                      <Link
+                        href={`/products/${review.productId}`}
+                        className="flex-shrink-0"
+                      >
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={product?.image ?? ""}
+                          alt=""
+                          className="w-[68px] h-[68px] rounded-[6px] object-cover bg-[#EDEDED]"
+                        />
+                      </Link>
                       <div className="min-w-0 flex-1 pt-0.5">
                         <p className="text-[14px] font-semibold text-kurly-ink line-clamp-2 leading-[1.35]">
                           {review.productName}
