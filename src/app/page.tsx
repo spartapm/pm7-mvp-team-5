@@ -139,7 +139,7 @@ export default function HomePage() {
                 후기가 좋은 상품 추천
               </h2>
               <p className="text-[13px] text-kurly-muted mt-0.5">
-                좋은 리뷰가 달린 상품만 추천드려요! · v0807
+                좋은 리뷰가 달린 상품만 추천드려요!
               </p>
             </div>
             <button
