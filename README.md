@@ -3,6 +3,7 @@
 마켓컬리 리뷰에 **상황 태그**(인원·목적·동반자·맛)를 붙여, 조회자가 나와 비슷한 상황의 리뷰를 빠르게 파악할 수 있게 하는 **프로토타입**입니다.
 
 - Next.js `14.2.35` + TypeScript + Tailwind
+- deploy-check: 2026-08-07 15:49 KST
 - Auth: Supabase (`@supabase/supabase-js`) + 로컬 폴백 (7일 세션)
 - 더미데이터: `더미데이터_(1).xlsx` → `src/lib/seed-data.json`
 - 클라이언트 상태(작성/수정/장바구니)는 `localStorage`에 유지
